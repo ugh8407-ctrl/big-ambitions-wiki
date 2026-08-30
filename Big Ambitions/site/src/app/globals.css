@@ -1,0 +1,8 @@
+:root {
+  --nav-theme: 45 93% 55%;
+  --nav-theme-light: 45 96% 64%;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body { margin: 0; background: #090a0c; color: #f4f4f5; font-family: Arial, sans-serif; }
