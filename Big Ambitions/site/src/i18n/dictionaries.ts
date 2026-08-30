@@ -110,7 +110,7 @@ const de: Dictionary = {
   home: {
     meta: {
       title: "Big Ambitions Wiki — Guides, Mods & Business-Tipps",
-      description: "Big Ambitions Wiki mit Einsteiger-Guides, Geschäftstipps, Investments, Mods, Blueprints, Updates, Plattformstatus und Hilfe bei Abstürzen.",
+      description: "Big Ambitions Wiki mit Einsteiger-Guides, Geschäftstipps, Investments, Mods, Blueprints, Updates, Plattformstatus und Hilfe bei Abstürzen heute.",
       keywords: "Big Ambitions, Wiki, Guide, Geschäft, Mods, Blueprints, Updates",
     },
     hero: {
