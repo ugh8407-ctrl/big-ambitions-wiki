@@ -19,6 +19,8 @@
 - `/en`、`/de`：对应语言首页。
 - `/en/mods`、`/de/mods`：Mods 列表和导航页。
 - `/en/mods/big-ambitions-mods`、`/de/mods/big-ambitions-mods`：MDX 文章详情页。
+- `/en/privacy`、`/de/privacy`：隐私政策页。
+- `/en/terms`、`/de/terms`：服务条款页。
 - 对无效语言或不存在的文章返回 Next.js 404 页面。
 
 以上路由构成至少三个独立页面类型：主页、列表/导航页和文章详情页。
@@ -40,6 +42,8 @@
 - 游戏介绍区使用正文与特点卡片。
 - 攻略入口使用三列卡片网格，移动端改为单列。
 - 页面下方包含新手提示、常见问题和最终行动区。
+- Hero、新手引导、游戏介绍、兑换码和底部号召均使用本项目此前调研并核实的 Big Ambitions 信息。
+- 首页和文章页侧边栏包含兑换码模块；Big Ambitions 未发现官方兑换码系统，因此显示对应语言的“暂无”，不生成示例码。
 
 ### Mods 列表页
 
@@ -63,6 +67,29 @@
 - 官方链接仅使用可访问的 Big Ambitions 官网、Steam、Discord、Reddit、论坛和官方 YouTube。
 - 竞品攻略站链接不进入页面。
 - 未确认的平台、模组或发布日期信息明确标注为未确认，不作为事实陈述。
+- 全站品牌统一为 `Big Ambitions` 或 `Big Ambitions Wiki`，覆盖标题、导航、首页、侧边栏、页脚、元数据、隐私政策和服务条款；构建前执行旧游戏名残留扫描。
+- 只采用此前“主题基础信息”调研中已经核实的内容；任何不能确认的数据以对应语言的“待确认”呈现，不使用推测数值。
+- 首页可用的已核实基础资料为：开发商 Hovgaard Games；平台为 Windows 与 macOS（Steam）；类型为单人商业模拟游戏；抢先体验日期为 2023-03-10；正式版日期为 2026-08-28；官方 Steam 页面显示 126 项成就和 22 种受支持语言。
+- 官方链接配置为：`https://www.bigambitionsgame.com/`、`https://discord.gg/hovgaardgames`、`https://www.youtube.com/@hovgaardgames`、`https://store.steampowered.com/app/1331550/Big_Ambitions/`。
+- 不把随时间变化的在线人数、峰值玩家数、评论数量或百分比写成静态长期数据；若页面需要该字段则显示“待确认”。
+
+## 首页调研内容映射
+
+- Hero：以“从第一家公司到商业帝国”为核心叙述，行动按钮分别进入新手指南、Mods/Blueprints 内容和 Steam 官方页面。
+- 新手引导：固定包含 Beginner Guide，并覆盖选择首个业务、购买和布置场所、学习课程与文凭、早期投资与扩张四类真实需求。
+- 游戏介绍：说明玩家在纽约经营企业、租赁和布置场所、管理库存与员工并逐步扩张；避免加入未由官方资料确认的数值。
+- 兑换码：显示“暂无”，并说明目前没有已确认的官方兑换码系统。
+- 底部号召：引导用户阅读 Beginner Guide 或前往 Steam 官方页面。
+- Hero 数据只能使用已核实的日期、平台、开发商、成就数和语言数；若资料出现冲突则显示“待确认”。
+
+## SEO 与主题配置
+
+- 英文默认 SEO 标题使用 `Big Ambitions Wiki — Guides, Mods & Business Tips`，保持不超过 60 个字符。
+- 英文描述聚焦 beginner guide、best business、investments、mods、blueprints、updates 与 troubleshooting，并保持 140–160 个字符。
+- 英文 keywords 不超过 100 个字符，核心词为 `Big Ambitions, wiki, guide, best business, mods, blueprints, updates`。
+- 德语页面使用本地化标题、描述和关键词，不在德语页面混入中文。
+- 主题使用亮黄色作为复刻站的主要强调色：`--nav-theme: 45 93% 55%`，`--nav-theme-light: 45 96% 64%`；默认界面为深色。
+- 页面生成 canonical 与英语/德语 hreflang，且标题、描述、Open Graph 文案全部使用 Big Ambitions 品牌。
 
 ## 国际化
 
@@ -71,11 +98,13 @@
 - MDX 正文按语言分目录存放，避免在同一文档中混合翻译。
 - 语言切换保持当前页面类型与文章 slug；不存在对应翻译时回到该语言的 Mods 列表页。
 - 页面设置正确的 `lang` 属性，并生成对应语言的标题和描述。
+- 首页、侧边栏、页脚、法律页、空兑换码提示、SEO 元数据及所有行动按钮均需本地化，禁止只翻译导航。
 
 ## 组件边界
 
 - `SiteHeader`：品牌、桌面导航、移动菜单、Steam 按钮、语言切换。
 - `SiteFooter`：站点说明、攻略链接、官方链接和免责声明。
+- `CodesSidebar`：显示调研确认的兑换码；当前 Big Ambitions 状态固定为“暂无”。
 - `Hero`：首页主视觉和行动按钮。
 - `StatsGrid`：核心数据。
 - `GuideCard` / `GuideGrid`：攻略入口。
@@ -99,7 +128,11 @@
 - 在桌面与移动视口逐页截图，与参考站核对顶栏、英雄区、卡片、文章宽度、字体层级和页脚。
 - 检查页面没有目标站的品牌文案、Logo或受版权保护图片。
 - 检查内容来源于本项目资料，且没有失效的站内链接。
+- 对源码和生成页面执行 `Gamble With Your Friends`、`GWYF` 及参考站域名的残留扫描，结果必须为零（设计文档中的参考说明除外）。
+- 验证首页 Hero、新手引导、游戏介绍、兑换码、底部号召、页脚、侧边栏与法律页均显示 Big Ambitions 内容。
+- 验证兑换码模块只显示“暂无”，不存在伪造兑换码。
+- 验证官方链接、SEO title、description、keywords、HSL 主题变量和英语/德语切换。
 
 ## 交付范围
 
-本次交付包括可本地运行和生产构建的 Next.js 源码、英语与德语内容、至少三个页面类型和验证结果。本次不包含域名购买、外部分析服务、用户账户、数据库、评论系统或正式公网部署。
+本次交付包括可本地运行和生产构建的 Next.js 源码、英语与德语内容、至少三个页面类型、隐私政策与服务条款页面、真实调研内容映射和验证结果。本次不包含域名购买、外部分析服务、用户账户、数据库、评论系统或正式公网部署。
