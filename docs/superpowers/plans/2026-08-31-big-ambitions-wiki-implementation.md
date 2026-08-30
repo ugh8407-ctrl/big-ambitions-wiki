@@ -267,22 +267,24 @@ git add "Big Ambitions/site/src/components/home" "Big Ambitions/site/src/app/[lo
 git commit -m "feat: add researched Big Ambitions homepage"
 ```
 
-### Task 5: MDX Registry, Mods Navigation, and Article Detail
+### Task 5: MDX Registry, Keyword Navigation, and 20 Article Details
 
 **Files:**
 - Create: `Big Ambitions/site/src/content/types.ts`
 - Create: `Big Ambitions/site/src/content/registry.ts`
-- Create: `Big Ambitions/site/src/content/en/mods/big-ambitions-mods.mdx`
-- Create: `Big Ambitions/site/src/content/de/mods/big-ambitions-mods.mdx`
+- Create: `Big Ambitions/site/src/content/en/**/*.mdx` for all 20 keyword pages
+- Create: `Big Ambitions/site/src/content/de/**/*.mdx` for all 20 localized keyword pages
 - Create: `Big Ambitions/site/src/components/mdx/mdx-components.tsx`
 - Create: `Big Ambitions/site/src/components/article-header.tsx`
-- Create: `Big Ambitions/site/src/app/[locale]/mods/page.tsx`
-- Create: `Big Ambitions/site/src/app/[locale]/mods/[slug]/page.tsx`
+- Create: `Big Ambitions/site/src/app/[locale]/guides/page.tsx`
+- Create: `Big Ambitions/site/src/app/[locale]/[category]/page.tsx`
+- Create: `Big Ambitions/site/src/app/[locale]/[category]/[slug]/page.tsx`
 - Create: `Big Ambitions/site/src/tests/content-registry.test.ts`
 
 **Interfaces:**
 - Produces: `ArticleMeta`, `ArticleRecord`, `getArticles(locale: Locale)`, and `getArticle(locale: Locale, slug: string)`.
-- The detail route consumes a returned MDX component and metadata; missing slugs call `notFound()`.
+- The detail route consumes a returned MDX component and metadata; missing categories or slugs call `notFound()`.
+- Each `ArticleMeta` includes `keyword`, `category`, `slug`, `title`, `description`, and `summary`.
 
 - [ ] **Step 1: Write registry tests for both locales and missing slugs**
 
@@ -292,6 +294,7 @@ import { getArticle, getArticles } from "@/content/registry";
 
 describe("MDX registry", () => {
   it("returns translated articles and rejects unknown slugs", () => {
+    expect(getArticles("en")).toHaveLength(20);
     expect(getArticles("en").map((article) => article.slug)).toContain("big-ambitions-mods");
     expect(getArticle("de", "big-ambitions-mods")?.meta.title).toMatch(/Mods/);
     expect(getArticle("en", "missing-page")).toBeUndefined();
@@ -305,25 +308,37 @@ Run: `npm test -- content-registry.test.ts`
 
 Expected: FAIL because the registry is missing.
 
-- [ ] **Step 3: Implement the typed registry and original MDX content**
+- [ ] **Step 3: Implement the typed registry and keyword-source mapping**
 
-The article must cover the currently unconfirmed official mod ecosystem, safe backup workflow, blueprints, known limitations, and crash troubleshooting using the project research. Do not state that Steam Workshop or official mod support exists unless the research confirms it; use `To be confirmed` / `Noch zu bestätigen` where needed.
+Parse the approved category and keyword list into a hand-maintained registry. Map all 20 keywords to unique category/slug pairs and require a matching English and German MDX import for every registry entry.
 
-- [ ] **Step 4: Implement list and detail routes using the shared shell**
+- [ ] **Step 4: Write the 20 English MDX articles from the research material**
 
-The Mods list must use reference-matched cards and breadcrumbs. The detail page must use the narrow article column, sidebar codes module, MDX callouts, steps, tables, FAQ, and ending CTAs.
+For each keyword, remove irrelevant or conflicting source notes, integrate consistent facts from official, community, and video sources, and produce an original article of approximately 1200 English words. The first paragraph must directly answer the search intent; use H2 sections and 3–4 sentence paragraphs. Mark unsupported conclusions `To be confirmed` and never invent numbers, characters, codes, platform releases, or mechanics.
 
-- [ ] **Step 5: Run registry tests, type checking, and route build**
+- [ ] **Step 5: Add the 20 German localized MDX articles**
+
+Translate the supported meaning rather than adding new facts. Use `Noch zu bestätigen` wherever the English source uses `To be confirmed`; preserve category and slug mapping so language switching remains on the equivalent topic.
+
+- [ ] **Step 6: Add strict SEO and article-shape validation**
+
+For every article, assert that the 40–60 character title contains the complete keyword, the 140–160 character description contains the complete keyword, the first content paragraph is present, and the English body is within the agreed approximate range. Fail the build when an article is missing from either locale.
+
+- [ ] **Step 7: Implement category list and detail routes using the shared shell**
+
+The category lists must use reference-matched cards and breadcrumbs. Detail pages must use the narrow article column, codes sidebar, MDX callouts, steps, tables, FAQ, and ending CTAs. `/en/mods` and `/de/mods` remain the Customization category pages, while other categories use their matching route segments.
+
+- [ ] **Step 8: Run registry, SEO, type, and route build checks**
 
 Run: `npm test -- content-registry.test.ts && npm run typecheck && npm run build`
 
-Expected: PASS and generated locale routes for the homepage, Mods list, and article.
+Expected: PASS and generated locale routes for all 20 English and 20 German keyword articles.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
-git add "Big Ambitions/site/src/content" "Big Ambitions/site/src/components" "Big Ambitions/site/src/app/[locale]/mods" "Big Ambitions/site/src/tests/content-registry.test.ts"
-git commit -m "feat: add bilingual MDX mods guides"
+git add "Big Ambitions/site/src/content" "Big Ambitions/site/src/components" "Big Ambitions/site/src/app/[locale]" "Big Ambitions/site/src/tests/content-registry.test.ts"
+git commit -m "feat: add bilingual keyword guide library"
 ```
 
 ### Task 6: Legal Pages, SEO, and Brand-Residue Guard
