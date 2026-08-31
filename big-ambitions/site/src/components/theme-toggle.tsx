@@ -10,19 +10,20 @@ const labels = {
 } as const;
 
 export function ThemeToggle({ locale }: { locale: Locale }) {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("theme") === "dark";
-    setDark(saved);
-    document.documentElement.dataset.theme = saved ? "dark" : "light";
+    const stored = window.localStorage.getItem("ba-theme");
+    const useDark = stored !== "light";
+    setDark(useDark);
+    document.documentElement.dataset.theme = useDark ? "dark" : "light";
   }, []);
 
   function toggleTheme() {
     const next = !dark;
     setDark(next);
     document.documentElement.dataset.theme = next ? "dark" : "light";
-    window.localStorage.setItem("theme", next ? "dark" : "light");
+    window.localStorage.setItem("ba-theme", next ? "dark" : "light");
   }
 
   return <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={dark ? labels[locale].light : labels[locale].dark}>{dark ? "☀" : "☾"}</button>;
