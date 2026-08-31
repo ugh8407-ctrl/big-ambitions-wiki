@@ -151,7 +151,55 @@ const de: Dictionary = {
   legal: { privacyTitle: "Datenschutzerklärung", termsTitle: "Nutzungsbedingungen", updated: "Zuletzt aktualisiert am 31. August 2026" },
 };
 
-const dictionaries: Record<Locale, Dictionary> = { en, de };
+const fr: Dictionary = {
+  localeName: "Français",
+  nav: { guide: "Guides", business: "Entreprise", updates: "Mises à jour", mods: "Mods", platforms: "Plateformes", reviews: "Avis", steam: "Voir sur Steam", menu: "Ouvrir le menu" },
+  common: { home: "Accueil", readGuide: "Lire le guide", officialMedia: "Média officiel", toConfirm: "À confirmer", browseAll: "Voir tous les guides" },
+  home: {
+    meta: {
+      title: "Big Ambitions Wiki — Guides, mods et entreprises",
+      description: "Wiki Big Ambitions en français : guides pour débuter, meilleures entreprises, investissements, mods, blueprints, mises à jour et solutions aux crashs.",
+      keywords: "Big Ambitions, wiki, guide, entreprise, mods, blueprints, mises à jour",
+    },
+    hero: {
+      eyebrow: "Guide communautaire indépendant de gestion",
+      titleLead: "Bâtissez votre",
+      titleAccent: "empire commercial",
+      description: "Commencez avec une petite boutique, maîtrisez les mécanismes qui la rendent rentable, puis développez un réseau de magasins, entrepôts, bureaux, placements et biens immobiliers.",
+      primary: "Commencer le guide du débutant",
+      secondary: "Explorer les guides d’entreprise",
+      updated: "Mis à jour pour la version 1.0",
+      stats: [["28 août 2026", "Sortie complète"], ["126", "Succès Steam"], ["22", "Langues prises en charge"], ["Windows + macOS", "Plateformes Steam"]],
+    },
+    start: {
+      eyebrow: "Bien commencer",
+      title: "Votre parcours dans Big Ambitions",
+      description: "Suivez une progression pratique : répondez aux besoins de votre personnage, ouvrez une première entreprise raisonnable, automatisez-la, puis développez-vous.",
+      cards: [
+        { number: "01", title: "Guide du débutant", description: "Maîtrisez les besoins personnels, les premiers objectifs, la trésorerie, le personnel et le passage du premier emploi à une boutique autonome.", href: "/guides/big-ambitions-guide" },
+        { number: "02", title: "Choisir sa première entreprise", description: "Étudiez la demande, la concurrence, le loyer, les frais d’installation et les besoins en personnel plutôt que de suivre un classement figé.", href: "/guides/big-ambitions-best-starting-business" },
+        { number: "03", title: "Acheter et aménager des locaux", description: "Trouvez les véhicules, équipements, sanitaires, stocks et espaces nécessaires au fonctionnement quotidien de votre activité.", href: "/guides/big-ambitions-where-to-buy-truck" },
+        { number: "04", title: "Investir et se développer", description: "Comparez le réinvestissement dans vos commerces rentables avec les fonds et l’immobilier lorsque votre trésorerie devient stable.", href: "/guides/big-ambitions-best-investment" },
+      ],
+    },
+    about: {
+      eyebrow: "À propos du jeu",
+      title: "Qu’est-ce que Big Ambitions ?",
+      paragraphs: [
+        "Big Ambitions est un jeu de simulation d’entreprise en solo développé par Hovgaard Games. Vous débutez avec peu d’argent et des besoins essentiels, puis vous louez des locaux, installez du matériel, achetez du stock et recrutez des employés à New York.",
+        "La progression ne se limite pas à une seule boutique. La description officielle mentionne les entrepôts, les importations, le siège social, l’immobilier, les fonds d’investissement, la santé et le bonheur.",
+      ],
+      facts: [["Développeur", "Hovgaard Games"], ["Plateformes", "Windows / macOS sur Steam"], ["Genre", "Simulation d’entreprise"], ["Mode", "Solo"], ["Accès anticipé", "10 mars 2023"], ["Sortie complète", "28 août 2026"]],
+    },
+    guides: { eyebrow: "Tous les guides", title: "Des réponses à chaque étape", description: "Chaque page répond à une question précise et distingue clairement les faits vérifiés des informations qui restent à confirmer." },
+    final: { title: "Prêt à mieux vous développer ?", description: "Commencez par le parcours du débutant, vérifiez la demande avant de dépenser et consultez nos guides lorsqu’un local, une mise à jour, une plateforme ou un problème technique vous bloque.", primary: "Lire le guide du débutant", secondary: "Jouer sur Steam" },
+  },
+  codes: { title: "Codes Big Ambitions", empty: "Aucun disponible", note: "Aucun système officiel de codes à utiliser dans Big Ambitions n’est confirmé. Nous ne publions jamais de codes inventés." },
+  footer: { about: "Big Ambitions Wiki est un guide communautaire indépendant consacré à la création d’entreprises, aux investissements, aux mises à jour, à la personnalisation, aux plateformes et au dépannage. Ce site n’est pas affilié à Hovgaard Games.", guides: "Guides", official: "Liens officiels", legal: "Informations légales", privacy: "Politique de confidentialité", terms: "Conditions d’utilisation", rights: "Les noms et ressources du jeu appartiennent à leurs ayants droit respectifs." },
+  legal: { privacyTitle: "Politique de confidentialité", termsTitle: "Conditions d’utilisation", updated: "Dernière mise à jour le 31 août 2026" },
+};
+
+const dictionaries: Record<Locale, Dictionary> = { en, de, fr };
 
 export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale];

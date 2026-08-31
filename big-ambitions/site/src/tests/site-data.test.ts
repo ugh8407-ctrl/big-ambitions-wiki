@@ -15,10 +15,12 @@ describe("verified site data", () => {
     expect(siteData.theme).toEqual({ base: "45 93% 55%", light: "45 96% 64%" });
   });
 
-  it("has complete English and German home copy without invented codes", () => {
+  it("has complete localized home copy without invented codes", () => {
     expect(getDictionary("en").home.start.cards).toHaveLength(4);
     expect(getDictionary("de").home.start.cards).toHaveLength(4);
+    expect(getDictionary("fr").home.start.cards).toHaveLength(4);
     expect(getDictionary("en").codes.empty).toBe("None available");
     expect(getDictionary("de").codes.empty).toBe("Keine verfügbar");
+    expect(getDictionary("fr").codes.empty).toBe("Aucun disponible");
   });
 });

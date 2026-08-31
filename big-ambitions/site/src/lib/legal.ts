@@ -27,4 +27,18 @@ export const legalContent = {
       ["Rechte", "Diese Website ist nicht offiziell. Big Ambitions und zugehörige Inhalte gehören den jeweiligen Rechteinhabern; der originäre Guide-Text darf nicht als konkurrierende Kopie veröffentlicht werden."],
     ],
   },
+  fr: {
+    privacy: [
+      ["Informations collectées", "Ce guide indépendant ne demande aucun compte et ne collecte volontairement ni nom, ni adresse, ni mot de passe, ni information de paiement, ni identifiant de jeu. Les journaux techniques de l’hébergeur peuvent enregistrer les données de requête nécessaires à la sécurité et au bon fonctionnement du site."],
+      ["Cookies et mesures d’audience", "Aucun cookie publicitaire ou outil de mesure d’audience n’est configuré dans cette version du site. Si cette situation évolue, la présente politique sera mise à jour avant l’activation du nouveau service."],
+      ["Liens externes", "Les liens vers le site officiel, Steam, Discord, YouTube, le forum du développeur et les sources communautaires ouvrent des services tiers soumis à leurs propres règles de confidentialité. Consultez-les avant de transmettre des données personnelles."],
+      ["Statut du site communautaire", "Big Ambitions Wiki est un guide communautaire indépendant sans affiliation avec Hovgaard Games. Les noms, marques et ressources du jeu restent la propriété de leurs ayants droit respectifs."],
+    ],
+    terms: [
+      ["Objet des guides", "Le site propose des guides informatifs consacrés à Big Ambitions et fondés sur des recherches. Il distingue les informations vérifiées, les témoignages communautaires et les éléments qui restent à confirmer."],
+      ["Absence de garantie", "Les mises à jour peuvent modifier les prix, les lieux, l’équilibrage, la compatibilité et les interfaces. Vérifiez toute décision importante dans le jeu actuel, l’aide F1, BizMan, Market Insider, Steam ou une annonce officielle du développeur."],
+      ["Utilisation sûre", "Sauvegardez vos parties avant d’installer du contenu Workshop, d’appliquer des Blueprints, de modifier la configuration ou de tester une solution technique. Le site ne fournit aucun crack, exécutable inconnu ou paquet mobile non officiel."],
+      ["Propriété intellectuelle", "Ce site n’est pas officiel. Big Ambitions et les éléments associés appartiennent à leurs ayants droit ; les textes originaux des guides et la présentation du site ne peuvent pas être republiés sous forme de copie concurrente."],
+    ],
+  },
 } as const;

@@ -34,12 +34,23 @@ describe("content integrity", () => {
   it("has localized legal copy and valid home metadata lengths", () => {
     expect(legalContent.en.privacy.length).toBeGreaterThan(2);
     expect(legalContent.de.terms.length).toBeGreaterThan(2);
-    for (const locale of ["en", "de"] as const) {
+    for (const locale of ["en", "de", "fr"] as const) {
       const meta = getDictionary(locale).home.meta;
       expect(meta.title.length).toBeLessThanOrEqual(60);
       expect(meta.description.length).toBeGreaterThanOrEqual(140);
       expect(meta.description.length).toBeLessThanOrEqual(160);
       expect(meta.keywords.length).toBeLessThanOrEqual(100);
     }
+  });
+
+  it("provides complete French interface and legal copy without translating the game name", () => {
+    const french = getDictionary("fr");
+    expect(french.localeName).toBe("Français");
+    expect(french.nav.business).toBe("Entreprise");
+    expect(french.home.about.title).toBe("Qu’est-ce que Big Ambitions ?");
+    expect(french.codes.empty).toBe("Aucun disponible");
+    expect(legalContent.fr.privacy.length).toBeGreaterThan(2);
+    expect(legalContent.fr.terms.length).toBeGreaterThan(2);
+    expect(JSON.stringify({ french, legal: legalContent.fr })).not.toMatch(/Grandes Ambitions|Grande Ambition/);
   });
 });

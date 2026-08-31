@@ -14,19 +14,19 @@ const navItems = [
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const dictionary = getDictionary(locale);
-  const alternate = locale === "en" ? "de" : "en";
+  const a11y = locale === "fr" ? { home:"accueil", navigation:"Navigation principale" } : locale === "de" ? { home:"Startseite", navigation:"Hauptnavigation" } : { home:"home", navigation:"Main navigation" };
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link className="brand" href={`/${locale}`} aria-label={`${siteData.siteName} home`}>
+        <Link className="brand" href={`/${locale}`} aria-label={`${siteData.siteName} ${a11y.home}`}>
           <span className="brand-mark" aria-hidden="true">BA</span>
           <span><strong>Big Ambitions</strong> Wiki</span>
         </Link>
-        <nav className="desktop-nav" aria-label="Main navigation">
+        <nav className="desktop-nav" aria-label={a11y.navigation}>
           {navItems.map(([key, href]) => <Link key={key} href={`/${locale}${href}`}>{dictionary.nav[key]}</Link>)}
         </nav>
         <div className="header-actions">
-          <Link className="language-link" href={`/${alternate}`} hrefLang={alternate}>{alternate.toUpperCase()}</Link>
+          {(["en", "de", "fr"] as const).filter((item) => item !== locale).map((item) => <Link className="language-link" href={`/${item}`} hrefLang={item} key={item}>{item.toUpperCase()}</Link>)}
           <a className="steam-button" href={siteData.links.steam} target="_blank" rel="noreferrer">◉ {dictionary.nav.steam}</a>
           <details className="mobile-menu">
             <summary aria-label={dictionary.nav.menu}>☰</summary>
