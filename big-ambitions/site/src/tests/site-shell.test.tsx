@@ -13,5 +13,7 @@ describe("site shell", () => {
       "href",
       "https://store.steampowered.com/app/1331550/Big_Ambitions/",
     );
+    expect(screen.getByRole("button", { name: /dark theme/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /language/i })).toBeInTheDocument();
   });
 });

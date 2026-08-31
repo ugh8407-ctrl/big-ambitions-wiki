@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/i18n/locales";
 import { getDictionary } from "@/i18n/dictionaries";
 import { siteData } from "@/lib/site-data";
+import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
   ["guide", "/guides"],
@@ -15,6 +16,7 @@ const navItems = [
 export function SiteHeader({ locale }: { locale: Locale }) {
   const dictionary = getDictionary(locale);
   const a11y = locale === "fr" ? { home:"accueil", navigation:"Navigation principale" } : locale === "de" ? { home:"Startseite", navigation:"Hauptnavigation" } : { home:"home", navigation:"Main navigation" };
+  const languageLabel = locale === "fr" ? "Choisir la langue" : locale === "de" ? "Sprache wählen" : "Choose language";
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -26,7 +28,8 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           {navItems.map(([key, href]) => <Link key={key} href={`/${locale}${href}`}>{dictionary.nav[key]}</Link>)}
         </nav>
         <div className="header-actions">
-          {(["en", "de", "fr"] as const).filter((item) => item !== locale).map((item) => <Link className="language-link" href={`/${item}`} hrefLang={item} key={item}>{item.toUpperCase()}</Link>)}
+          <details className="language-menu"><summary role="button" aria-label={languageLabel}>◎ {locale.toUpperCase()}</summary><div>{(["en", "de", "fr"] as const).map((item) => <Link className="language-link" href={`/${item}`} hrefLang={item} key={item}>{item === "en" ? "English" : item === "de" ? "Deutsch" : "Français"}</Link>)}</div></details>
+          <ThemeToggle locale={locale}/>
           <a className="steam-button" href={siteData.links.steam} target="_blank" rel="noreferrer">◉ {dictionary.nav.steam}</a>
           <details className="mobile-menu">
             <summary aria-label={dictionary.nav.menu}>☰</summary>
