@@ -20,6 +20,17 @@ describe("content integrity", () => {
     for (const phrase of banned) expect(source).not.toContain(phrase);
   });
 
+  it("keeps the official game name unchanged in German content", () => {
+    const source = readSourceFiles(path.resolve(process.cwd(), "src"));
+    const translatedOrCompoundedNames = [
+      "Big-Ambitions",
+      "Big Ambitionen",
+      "Große Ambitionen",
+      "Grosse Ambitionen",
+    ];
+    for (const name of translatedOrCompoundedNames) expect(source).not.toContain(name);
+  });
+
   it("has localized legal copy and valid home metadata lengths", () => {
     expect(legalContent.en.privacy.length).toBeGreaterThan(2);
     expect(legalContent.de.terms.length).toBeGreaterThan(2);
