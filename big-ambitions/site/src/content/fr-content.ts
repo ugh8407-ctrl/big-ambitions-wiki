@@ -26,6 +26,12 @@ export const frenchKeywords: Record<string, string> = {
   "big-ambitions-blueprints": "Blueprints Big Ambitions",
   "big-ambitions-review": "avis sur Big Ambitions",
   "big-ambitions-crashes": "crashs de Big Ambitions",
+  "big-ambitions-water-cooler": "fontaine à eau Big Ambitions",
+  "big-ambitions-ai-music": "musique IA de Big Ambitions",
+  "big-ambitions-music": "musique et bande-son de Big Ambitions",
+  "big-ambitions-life-sim-game": "Big Ambitions jeu de simulation de vie",
+  "big-ambitions-uniform": "uniformes de Big Ambitions",
+  "big-ambitions-multiplayer": "multijoueur de Big Ambitions",
 };
 
 export const frenchResearch: Record<string, FrenchResearch> = {
@@ -148,5 +154,41 @@ export const frenchResearch: Record<string, FrenchResearch> = {
     confirmed: "Les signalements publics mentionnent souvent des échecs au démarrage ou de longues phases de compilation des shaders. Des options de lancement testées par la communauté peuvent réduire la qualité et utiliser une fenêtre basse résolution, mais il s’agit d’un diagnostic et non d’une correction officielle garantie.",
     steps: ["Comparez l’ordinateur à la configuration minimale Steam actuelle.", "Mettez à jour le pilote graphique et le système d’exploitation.", "Demandez à Steam de vérifier les fichiers installés.", "Désactivez tous les mods et testez une sauvegarde propre ou copiée.", "N’essayez les options de faible qualité en fenêtre que comme diagnostic temporaire.", "Rassemblez les journaux, la version, le matériel et les étapes de reproduction pour le support officiel."],
     caution: "La chaîne communautaire relevée est -screen-quality Low -screen-fullscreen 0 -screen-width 1024 -screen-height 768. Sauvegardez d’abord vos parties et ne supprimez aucun fichier de configuration ou cache sans copie récupérable.",
+  },
+  "big-ambitions-water-cooler": {
+    answer: "Aucun emplacement, vendeur, prix ou besoin d’entreprise actuel pour une fontaine à eau dans Big Ambitions n’a pu être confirmé officiellement. Vérifiez le nom exact dans l’aide F1 et dans BizMan avant d’acheter un meuble ressemblant.",
+    confirmed: "La description Steam confirme que les entreprises utilisent du mobilier et du matériel à placer, mais elle ne documente pas une fontaine à eau ni un vendeur permanent. Les résultats de recherche mélangent aussi ce terme avec d’autres jeux.",
+    steps: ["Lisez le nom exact du besoin non satisfait dans BizMan.", "Recherchez Water Cooler et les termes voisins dans l’aide F1.", "Utilisez la fiche de l’objet pour identifier le vendeur actuel.", "Contrôlez l’inventaire réel du magasin.", "Placez l’objet puis vérifiez le statut dans BizMan."],
+    caution: "Disponibilité, vendeur, prix, dimensions et effet de la fontaine à eau : à confirmer dans la version actuelle.",
+  },
+  "big-ambitions-ai-music": {
+    answer: "Aucune déclaration officielle vérifiée ne confirme que Big Ambitions utilise de la musique générée par IA. Une réponse du représentant communautaire indique que les jingles radio sont originaux et que la musique du jeu est sous licence.",
+    confirmed: "Le représentant communautaire de Hovgaard Games a indiqué que les jingles publicitaires sont originaux et que toute la musique est autorisée dans le jeu et en diffusion. Les pages officielles consultées ne qualifient pas la bande-son de musique IA.",
+    steps: ["Séparez la licence musicale de la méthode de création.", "Consultez les crédits actuels du jeu.", "Cherchez une déclaration directe du studio ou de l’artiste crédité.", "Ne considérez pas un détecteur automatique comme une preuve.", "Ne modifiez la conclusion qu’avec une source primaire."],
+    caution: "L’utilisation éventuelle d’IA pour une piste précise reste à confirmer. Le statut sous licence ne permet ni de prouver ni d’exclure l’emploi d’outils génératifs.",
+  },
+  "big-ambitions-music": {
+    answer: "Big Ambitions contient de la musique sous licence et des jingles publicitaires originaux. Le jeu accepte aussi des MP3 locaux sur une station personnalisée : ajoutez directement les fichiers au dossier configuré, puis sélectionnez cette station sur une radio du jeu.",
+    confirmed: "Une réponse officielle du forum autorise la musique pour le jeu et le streaming, même si des détections automatiques peuvent encore survenir. Les réponses du développeur confirment aussi une station distincte pour les MP3 locaux.",
+    steps: ["Ouvrez Options puis Audio.", "Choisissez le dossier de musique locale.", "Placez-y directement des fichiers MP3.", "Allumez une radio ou un haut-parleur compatible.", "Sélectionnez la station locale ou personnalisée."],
+    caution: "La liste complète et actuelle de la bande-son ainsi que les ayants droit de chaque piste restent à confirmer. Une réclamation automatique peut encore devoir être contestée.",
+  },
+  "big-ambitions-life-sim-game": {
+    answer: "Big Ambitions est une simulation d’entreprise qui intègre des mécanismes de simulation de vie, et non une pure simulation du quotidien. Sommeil, alimentation, santé, bonheur, logement et déplacements accompagnent la création d’entreprises à New York.",
+    confirmed: "Steam présente officiellement Big Ambitions comme une simulation d’entreprise avec jeu de rôle et explique que le personnage doit interagir avec le monde pour survivre et réussir. Life Sim figure aussi parmi les tags populaires des utilisateurs.",
+    steps: ["Considérez l’entreprise comme la progression principale.", "Gérez les besoins personnels du personnage.", "Utilisez logement, transports et services comme systèmes fonctionnels.", "Comparez séparément la profondeur relationnelle des simulations de vie.", "Vérifiez chaque mécanisme supposé dans la description officielle."],
+    caution: "L’étiquette simulation de vie ne confirme ni romance approfondie, ni famille, ni vieillissement, ni multijoueur. Chaque fonction doit être vérifiée séparément.",
+  },
+  "big-ambitions-uniform": {
+    answer: "Big Ambitions permet d’attribuer des uniformes aux employés, mais le chemin de menu actuel et les couleurs disponibles doivent être vérifiés dans la gestion du personnel. Les anciens messages officiels du forum confirment leur ajout puis l’élargissement des vêtements.",
+    confirmed: "Le forum officiel classe la suggestion initiale des uniformes comme mise en œuvre dans la Beta 8. Un fil ultérieur signale davantage de vêtements et d’options en EA 0.8, avec certaines limites de couleurs selon les pièces.",
+    steps: ["Ouvrez BizMan et choisissez l’entreprise concernée.", "Sélectionnez l’employé ou le groupe d’employés.", "Cherchez le réglage d’uniforme ou de tenue.", "Choisissez une option disponible pour ce modèle.", "Contrôlez le résultat pendant le service."],
+    caution: "Le chemin exact en version 1.0, la liste des vêtements, les couleurs compatibles et l’affichage d’un logo restent à confirmer. Une ancienne suggestion de logo n’est pas la preuve de sa présence.",
+  },
+  "big-ambitions-multiplayer": {
+    answer: "Big Ambitions ne propose actuellement aucun mode multijoueur ou coopératif officiel : Steam le classe comme jeu solo. Les anciens commentaires du développeur évoquaient une possibilité future, sans annonce ferme, engagement de feuille de route ni date.",
+    confirmed: "La liste actuelle des fonctions Steam indique uniquement le mode solo. Sur le forum officiel, le développeur a expliqué qu’un mode multijoueur demanderait de reconstruire des parties importantes du jeu tout en reconnaissant l’intérêt des joueurs.",
+    steps: ["Vérifiez la liste actuelle des fonctions Steam.", "Consultez la feuille de route et les dernières actualités Steam.", "Exigez une annonce directe de Hovgaard Games.", "Distinguez le support officiel des projets communautaires.", "N’achetez aucun outil tiers en supposant une compatibilité native."],
+    caution: "Mode multijoueur officiel, coopération, nombre de joueurs, réseau et date de sortie : à confirmer. Les anciennes possibilités évoquées ne constituent pas une promesse.",
   },
 };

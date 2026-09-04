@@ -2,19 +2,29 @@ import { describe, expect, it } from "vitest";
 import { getArticle, getArticles } from "@/content/registry";
 
 describe("keyword article registry", () => {
-  it("maps all twenty approved keywords to unique localized pages", () => {
+  it("maps all twenty-six approved keywords to unique localized pages", () => {
     const english = getArticles("en");
     const german = getArticles("de");
     const french = getArticles("fr");
-    expect(english).toHaveLength(20);
-    expect(german).toHaveLength(20);
-    expect(french).toHaveLength(20);
-    expect(new Set(english.map((article) => article.slug)).size).toBe(20);
+    expect(english).toHaveLength(26);
+    expect(german).toHaveLength(26);
+    expect(french).toHaveLength(26);
+    expect(new Set(english.map((article) => article.slug)).size).toBe(26);
     expect(english.map((article) => article.slug)).toContain("big-ambitions-mods");
     expect(getArticle("de", "big-ambitions-mods")?.title).toMatch(/mods/i);
     expect(getArticle("fr", "big-ambitions-mods")?.title).toMatch(/vérifié/i);
     expect(getArticle("fr", "big-ambitions-mods")?.answer).toMatch(/atelier Steam/i);
     expect(getArticle("fr", "big-ambitions-mods")?.sections.map((section) => section.heading).join(" ")).toContain("Réponse directe");
+    expect(english.map((article) => article.slug)).toEqual(expect.arrayContaining([
+      "big-ambitions-water-cooler",
+      "big-ambitions-ai-music",
+      "big-ambitions-music",
+      "big-ambitions-life-sim-game",
+      "big-ambitions-uniform",
+      "big-ambitions-multiplayer",
+    ]));
+    expect(getArticle("de", "big-ambitions-music")?.answer).toMatch(/musik/i);
+    expect(getArticle("fr", "big-ambitions-multiplayer")?.answer).toMatch(/solo|multijoueur/i);
     expect(getArticle("en", "missing-page")).toBeUndefined();
   });
 
