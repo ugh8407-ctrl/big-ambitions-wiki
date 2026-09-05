@@ -54,4 +54,17 @@ describe("keyword article registry", () => {
       expect(article.title).toContain("Big Ambitions");
     }
   });
+
+  it("answers the two highest-opportunity GSC intents directly", () => {
+    const investment = getArticle("en", "big-ambitions-best-investment");
+    const bathroom = getArticle("en", "big-ambitions-where-to-buy-bathroom-stall");
+
+    expect(investment?.keyword).toBe("big ambitions best investment fund");
+    expect(investment?.title.toLowerCase()).toContain("big ambitions best investment fund");
+    expect(investment?.description.toLowerCase()).toContain("big ambitions best investment fund");
+    expect(investment?.answer.toLowerCase()).toContain("no single investment fund");
+    expect(bathroom?.answer).toMatch(/^Buy the Bathroom Stall at Essentials Appliances/);
+    expect(bathroom?.description).toContain("Essentials Appliances");
+    expect(bathroom?.sections.flatMap((section) => section.paragraphs).join(" ")).toContain("normal Toilet");
+  });
 });

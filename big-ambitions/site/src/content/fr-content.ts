@@ -8,7 +8,7 @@ export type FrenchResearch = {
 export const frenchKeywords: Record<string, string> = {
   "big-ambitions-guide": "guide Big Ambitions",
   "big-ambitions-best-starting-business": "Big Ambitions meilleure entreprise pour débuter",
-  "big-ambitions-best-investment": "Big Ambitions meilleur investissement",
+  "big-ambitions-best-investment": "meilleur fonds d’investissement Big Ambitions",
   "big-ambitions-where-to-buy-truck": "Big Ambitions où acheter un camion",
   "big-ambitions-where-to-buy-bathroom-stall": "Big Ambitions où acheter une cabine sanitaire",
   "big-ambitions-how-to-take-courses": "Big Ambitions comment suivre des cours",
@@ -48,10 +48,10 @@ export const frenchResearch: Record<string, FrenchResearch> = {
     caution: "Ne recopiez pas un classement de rentabilité sans examiner votre partie. Une recommandation issue d’un autre quartier, d’une autre mise à jour ou d’un autre défi peut être inadaptée à votre marché.",
   },
   "big-ambitions-best-investment": {
-    answer: "Aucun placement n’est officiellement présenté comme toujours meilleur dans Big Ambitions. Au début, réinvestir dans une entreprise rentable favorise souvent la croissance ; l’immobilier et les fonds deviennent plus pertinents lorsque les activités génèrent une trésorerie stable.",
-    confirmed: "La présentation officielle confirme que le développement des entreprises, l’immobilier et les fonds d’investissement sont des usages distincts du capital. Elle ne désigne aucun rendement maximal permanent, et les conseils communautaires dépendent toujours de la partie, du marché et de l’équilibrage actuel.",
-    steps: ["Mesurez la capacité de croissance encore rentable d’un établissement existant.", "Comparez le rendement financier au travail de gestion supplémentaire.", "Conservez la trésorerie d’exploitation et d’urgence hors des placements à long terme.", "N’utilisez l’immobilier ou les fonds que lorsque les entreprises principales n’ont plus besoin de ce capital.", "Évaluez les résultats sur la durée plutôt que sur une courte période."],
-    caution: "Les rendements exacts peuvent varier avec les mises à jour et les conditions de la partie. Considérez les pourcentages fixes et les classements universels anciens comme non confirmés tant qu’ils n’ont pas été vérifiés dans le jeu actuel.",
+    answer: "Il n’existe pas de fonds d’investissement toujours meilleur dans Big Ambitions. Comparez le risque des options actuellement affichées par la banque, gardez la trésorerie d’exploitation disponible et privilégiez l’entreprise lorsqu’un établissement rentable peut employer ce capital plus efficacement.",
+    confirmed: "La description officielle confirme les fonds d’investissement, l’immobilier et le développement des entreprises comme trois usages distincts du capital. Le forum officiel évoque trois fonds communs standards avec des niveaux de risque différents, sans désigner de gagnant permanent ni garantir un rendement.",
+    steps: ["Gardez assez de liquidités pour le loyer, les salaires, les stocks, la logistique et les imprévus.", "Ouvrez l’écran d’investissement actuel de la banque et comparez le risque affiché pour chaque fonds.", "Choisissez un risque plus faible pour l’argent dont vous pourriez avoir besoin rapidement.", "Comparez le fonds au réinvestissement dans une entreprise dont la demande est déjà prouvée.", "Évaluez plusieurs périodes de jeu avant de rééquilibrer."],
+    caution: "Les noms des fonds, les risques affichés, les frais, les intervalles et les rendements peuvent changer selon la version. Ne recopiez pas un ancien pourcentage et ne supposez pas que le fonds le plus risqué sera nécessairement le meilleur.",
   },
   "big-ambitions-where-to-buy-truck": {
     answer: "Achetez un camion de livraison chez un concessionnaire automobile indiqué sur la carte du jeu. Avant l’achat, vérifiez que l’entrepôt de destination possède une place adaptée et que la tournée, la capacité et le personnel justifient le véhicule.",
@@ -60,10 +60,10 @@ export const frenchResearch: Record<string, FrenchResearch> = {
     caution: "Le stock du concessionnaire, les prix et les libellés de la carte peuvent changer. Utilisez la carte et l’aide F1 actuelles plutôt qu’une adresse ou une capture de l’accès anticipé.",
   },
   "big-ambitions-where-to-buy-bathroom-stall": {
-    answer: "Le vendeur exact de la cabine sanitaire doit encore être confirmé dans l’aide d’objets F1 de la version actuelle. Une Bathroom Stall n’est pas nécessairement une simple Toilet : recherchez le besoin exact affiché dans BizMan avant d’acheter.",
-    confirmed: "Des joueurs signalent que certaines entreprises de bureau exigent une Bathroom Stall et un lavabo, et confondent régulièrement la cabine avec les toilettes ordinaires. Les discussions publiques ne donnent pas un nom de magasin assez fiable pour la version 1.0.",
-    steps: ["Ouvrez BizMan et relevez le nom exact de l’équipement manquant.", "Dans l’aide F1, cherchez Bathroom Stall et pas seulement Toilet.", "Utilisez la fiche de l’objet pour identifier le vendeur et son emplacement actuels.", "Achetez l’objet exact et placez-le dans un local compatible.", "Revenez dans BizMan pour vérifier que l’exigence est satisfaite."],
-    caution: "Les prix souvent répétés et les anciennes adresses dépendent des mises à jour. Le vendeur et le coût actuels restent à confirmer dans la version 1.0.",
+    answer: "Achetez la Bathroom Stall chez Essentials Appliances dans Big Ambitions. Prévisualisez le stock du magasin depuis la carte ou recherchez exactement « Bathroom Stall » dans l’aide F1, puis suivez le marqueur lié.",
+    confirmed: "Un développeur de Big Ambitions a confirmé directement dans deux discussions Steam que Essentials Appliances vend la Bathroom Stall. Le nom exact est important : des toilettes ordinaires constituent un autre meuble et peuvent conduire au mauvais magasin.",
+    steps: ["Ouvrez BizMan et vérifiez que le besoin indique Bathroom Stall.", "Recherchez exactement Bathroom Stall dans l’aide F1.", "Suivez le lien du vendeur ou trouvez Essentials Appliances sur la carte.", "Utilisez la loupe bleue pour prévisualiser le stock avant de vous déplacer.", "Achetez et placez la cabine, puis vérifiez le statut dans BizMan."],
+    caution: "Le vendeur est confirmé, mais le prix, le stock, les dimensions et les éventuels prérequis peuvent changer. Vérifiez l’inventaire actuel et l’aide F1 plutôt qu’un ancien prix ou une capture d’écran.",
   },
   "big-ambitions-how-to-take-courses": {
     answer: "La procédure des cours en version 1.0 n’est pas confirmée de façon fiable par les sources officielles disponibles. Les anciennes discussions relient l’école à la gestion ou aux bureaux, mais l’accès, les horaires, le prix et les prérequis doivent être vérifiés dans le jeu actuel.",
