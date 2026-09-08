@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import { siteOrigin } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bigambitionsgame.online"),
+  metadataBase: new URL(siteOrigin),
   title: "Big Ambitions Wiki",
   description: "Independent Big Ambitions guides built from verified official and community research.",
 };

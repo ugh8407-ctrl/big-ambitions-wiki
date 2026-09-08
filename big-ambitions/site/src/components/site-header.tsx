@@ -6,7 +6,7 @@ import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
   ["guide", "/guides"],
-  ["business", "/guides"],
+  ["business", "/guides#business"],
   ["updates", "/updates"],
   ["mods", "/mods"],
   ["platforms", "/platforms"],

@@ -12,6 +12,8 @@ export type Article = {
   summary: string;
   answer: string;
   updated: string;
+  modified?: string;
+  relatedSlugs?: string[];
   sections: ArticleSection[];
   sources: { label: string; href: string }[];
 };

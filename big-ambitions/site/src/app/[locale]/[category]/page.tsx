@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getArticles, getCategories } from "@/content/registry";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
+import { guideGroups } from "@/content/guide-navigation";
 
 type LocalizedLabel = Record<Locale,{title:string;description:string}>;
 const labels: Record<string,LocalizedLabel> = {
@@ -21,4 +22,23 @@ export function generateStaticParams(){return locales.flatMap((locale)=>getCateg
 
 export async function generateMetadata({params}:{params:Promise<{locale:string;category:string}>}):Promise<Metadata>{const {locale,category}=await params;if(!isLocale(locale)||!labels[category])return{};const item=labels[category][locale];return{title:item.title,description:item.description,alternates:{canonical:`/${locale}/${category}`,languages:{en:`/en/${category}`,de:`/de/${category}`,fr:`/fr/${category}`}}}}
 
-export default async function CategoryPage({params}:{params:Promise<{locale:string;category:string}>}){const {locale,category}=await params;if(!isLocale(locale)||!labels[category])notFound();const articles=getArticles(locale).filter((article)=>article.category===category);const label=labels[category][locale];const read=locale==="fr"?"Lire le guide →":locale==="de"?"Guide lesen →":"Read guide →";return <div className="container category-page"><Breadcrumbs locale={locale} items={[{label:label.title}]}/><header className="category-header"><span className="tag">{label.title}</span><h1>{label.title}</h1><p>{label.description}</p></header><div className="grid grid-3 article-grid">{articles.map((article)=><Link className="card article-card" href={`/${locale}/${category}/${article.slug}`} key={article.slug}><small>{label.title}</small><h2>{article.keyword}</h2><p>{article.summary}</p><b>{read}</b></Link>)}</div></div>}
+export default async function CategoryPage({ params }: { params: Promise<{ locale: string; category: string }> }) {
+  const { locale, category } = await params;
+  if (!isLocale(locale) || !labels[category]) notFound();
+  const articles = getArticles(locale).filter((article) => article.category === category);
+  const label = labels[category][locale];
+  const read = locale === "fr" ? "Lire le guide →" : locale === "de" ? "Anleitung lesen →" : "Read guide →";
+  const CardHeading = category === "guides" ? "h3" : "h2";
+  const card = (article: (typeof articles)[number]) => <Link className="card article-card" href={`/${locale}/${category}/${article.slug}`} key={article.slug}><small>{label.title}</small><CardHeading>{article.title}</CardHeading><p>{article.description}</p><b>{read}</b></Link>;
+  const grouped = new Set<string>(guideGroups.flatMap((group) => [...group.slugs]));
+  const remaining = articles.filter((article) => !grouped.has(article.slug));
+  return <div className="container category-page">
+    <Breadcrumbs locale={locale} items={[{ label: label.title }]} />
+    <header className="category-header"><span className="tag">{label.title}</span><h1>{label.title}</h1><p>{label.description}</p></header>
+    {category === "guides" ? <>
+      <nav className="guide-jump-links" aria-label={locale === "fr" ? "Thèmes des guides" : locale === "de" ? "Themen der Anleitungen" : "Guide topics"}>{guideGroups.map((group) => <a href={`#${group.id}`} key={group.id}>{group.title[locale]}</a>)}</nav>
+      {guideGroups.map((group) => <section className="guide-group" id={group.id} key={group.id}><h2>{group.title[locale]}</h2><div className="grid grid-3 article-grid">{group.slugs.map((slug) => articles.find((article) => article.slug === slug)).filter((article): article is (typeof articles)[number] => Boolean(article)).map(card)}</div></section>)}
+      {remaining.length > 0 && <div className="grid grid-3 article-grid">{remaining.map(card)}</div>}
+    </> : <div className="grid grid-3 article-grid">{articles.map(card)}</div>}
+  </div>;
+}

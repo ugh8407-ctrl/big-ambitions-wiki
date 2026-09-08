@@ -1,6 +1,13 @@
 import type { Locale } from "@/i18n/locales";
 import type { Article, ArticleSection } from "./types";
 import { frenchKeywords, frenchResearch } from "./fr-content";
+import { priorityGuideArticles } from "./priority-guides";
+import { growthLogisticsArticles } from "./growth-logistics";
+import { growthBusinessArticles } from "./growth-business";
+import { germanResearch } from "./de-content";
+import { englishMetadata } from "./metadata-en";
+import { germanMetadata } from "./metadata-de";
+import { frenchMetadata } from "./metadata-fr";
 
 const links = {
   official: "https://www.bigambitionsgame.com/",
@@ -56,6 +63,7 @@ const research: Research[] = [
 ];
 
 function makeTitle(keyword: string): string {
+  keyword = keyword.replace(/^big ambitions/i, "Big Ambitions");
   let title = `${keyword} — Verified Guide`;
   if (title.length < 40) title += " for Players";
   if (title.length > 60) title = `${keyword} Guide`;
@@ -79,72 +87,76 @@ function makeDescription(keyword: string, answer: string): string {
 }
 
 function englishSections(item: Research): ArticleSection[] {
-  const steps = item.steps;
   return [
-    { heading:"What the research confirms", paragraphs:[item.confirmed,`This matters because the phrase “${item.keyword}” often surfaces a mixture of official descriptions, older Early Access instructions, current community experience, and generic search results. The reliable answer keeps those layers separate and gives priority to the current game, Steam, the developer site, and in-game tools.`] },
-    { heading:"The practical way to handle it", paragraphs:[`Start with the current interface rather than a memorized location or number. Big Ambitions changes as updates adjust objectives, items, balance, and navigation, so a repeatable verification method is more useful than a brittle shortcut.`, `Use the following order as a working checklist. Each step is based on the collected material, while exact prices, times, addresses, and version-specific labels should be read from the live game.`], bullets:steps },
-    { heading:"How to verify the current version", paragraphs:[`Check F1 help for the exact object or mechanic, BizMan for business requirements and status, Market Insider for district demand and competition, and the map for current sellers or services. For update and platform questions, use Steam News, the official roadmap, and Hovgaard Games announcements.`, `If an older video or discussion disagrees with the current interface, the current game wins. Record the version and date when sharing the answer so another player can tell whether the instruction still applies.`] },
-    { heading:"What not to assume", paragraphs:[item.caution,`Do not turn community preference into an official rule, and do not turn an unverified value into a precise claim. A number that changes with a patch or save can make an otherwise useful guide misleading, which is why uncertain details are marked To be confirmed.`] },
-    { heading:"A decision framework that stays useful", paragraphs:[`Separate the immediate player goal from the larger business system. Ask what must be unlocked or purchased, what ongoing cost or dependency it creates, how it affects staffing and logistics, and whether the same result can be reached with less risk.`, `Keep a cash buffer and a backup before testing changes that affect saves, mods, layouts, or configuration. When the topic involves another game or platform, verify the feature on its official store page rather than relying on a list or short video title.`] },
-    { heading:"Read source claims in the right order", paragraphs:[`Begin with the official Steam page, developer website, roadmap, Steam News, and the current in-game interface. These sources establish supported platforms, release status, official features, and the words the game currently uses. The official forum can add developer clarification, while Steam guides, Reddit discussions, and videos are better for identifying the practical trouble players encounter.`, `A community post can be accurate for one patch and still be wrong today. Look at its date, note whether it describes Early Access or version 1.0, and check whether the author is reporting personal experience or quoting an official source. When no current primary source confirms the claim, the honest status is To be confirmed.`] },
-    { heading:"Common mistakes to avoid", paragraphs:[`The most common research mistake is copying a precise answer because it appears repeatedly. Repetition can come from several sites copying the same outdated post, so it does not replace confirmation. Another mistake is treating a feature request, a mod, or an interface label found in game files as proof of an announced official feature.`, `For gameplay decisions, avoid spending every available dollar just to follow an optimization tip. Rent, wages, inventory, logistics, personal needs, and unexpected changes still need working capital. For technical changes, preserve the original save or configuration so a failed test can be reversed without losing progress.`] },
-    { heading:"When to recheck this page", paragraphs:[`Recheck the answer after a major patch, a change to Steam platform tags, a new roadmap entry, or an official announcement from Hovgaard Games. Also recheck whenever F1 help, BizMan, Market Insider, the map, or the main-menu Workshop flow no longer matches the wording here.`, `A useful guide records the date of its last review and replaces obsolete guidance instead of hiding it beneath newer guesses. This page was checked against the collected research on August 31, 2026; facts that depend on a later build should be verified again before use.`] },
-    { heading:"Plan a safe in-game test", paragraphs:[`When the answer can be verified inside a save, test it in a controlled way. Write down the current game version, preserve a backup, keep enough money to reverse the decision, and change only one relevant variable at a time. That makes it possible to tell whether a result came from the item, business choice, mod, blueprint, launch option, or a separate change in the save.`, `After the test, compare the result with BizMan, Market Insider, F1 help, the map, or the applicable menu. A visible status change is stronger evidence than an assumption based on appearance. If the result cannot be repeated, describe it as a player report rather than converting it into a guaranteed instruction.`] },
-    { heading:"Share the answer without overstating it", paragraphs:[`A strong community answer says what was tested, on which version, and which part came from an official source. It also explains the boundary of the claim: a business can work well in one district without being the universal best, and a workaround can help one graphics setup without being an official crash fix.`, `Avoid removing the uncertainty label merely to make the answer sound confident. Clear limits help other players decide whether to spend money, alter a save, install content, or wait for an announcement. They also make the page easier to update when a later patch supplies the missing fact.`] },
-    { heading:"Bottom line", paragraphs:[item.answer,`The answer is intentionally conservative: it uses what the collected sources actually support and leaves version-sensitive details open when they cannot be confirmed. Recheck official or in-game information after a patch, and treat unsupported dates, prices, codes, and compatibility claims as To be confirmed.`] },
+    { heading: "What you need to know", paragraphs: [item.confirmed] },
+    { heading: "Steps to follow", paragraphs: [], bullets: item.steps },
+    { heading: "Version notes and limitations", paragraphs: [item.caution] },
+    { heading: "Your next step", paragraphs: [item.answer] },
   ];
 }
 
 function germanSections(item: Research): ArticleSection[] {
+  const content = germanResearch[item.slug];
   return [
-    { heading:"Direkte Antwort", paragraphs:[item.deAnswer,"Diese Seite trennt bestätigte Angaben von älteren Community-Berichten. Versionsabhängige Werte, Orte und Termine werden nicht erfunden, sondern als Noch zu bestätigen markiert."] },
-    { heading:"Was die Quellen belegen", paragraphs:["Offizielle Website, Steam, Entwicklerforum und die aktuellen Spielhilfen haben Vorrang. Beiträge aus Community und Videos erklären typische Fragen, ersetzen aber keine offizielle Bestätigung.","Prüfe bei widersprüchlichen Angaben immer die aktuelle Version, F1-Hilfe, BizMan, Market Insider oder die neueste offizielle Ankündigung."] },
-    { heading:"Empfohlene Reihenfolge", paragraphs:["Arbeite die Schritte in dieser Reihenfolge ab und kontrolliere jeden Status im Spiel. Preise, Öffnungszeiten, Adressen und Balancewerte können sich mit Updates ändern."], bullets:item.steps },
-    { heading:"Noch zu bestätigen", paragraphs:[item.caution,"Unsichere Angaben bleiben ausdrücklich offen. Dadurch entstehen keine erfundenen Zahlen, Figuren, Codes oder Veröffentlichungstermine."] },
-    { heading:"Fazit", paragraphs:[item.deAnswer,"Kontrolliere die offiziellen Quellen nach jedem größeren Patch erneut und behandle ältere Anleitungen als Orientierung, nicht als unveränderliche Regel."] },
+    { heading: "Was du wissen solltest", paragraphs: [content?.confirmed ?? item.deAnswer] },
+    { heading: "Schritt für Schritt", paragraphs: [], bullets: content?.steps ?? [] },
+    { heading: "Version und Einschränkungen", paragraphs: [content?.caution ?? "Die Angaben zur aktuellen Spielversion müssen noch bestätigt werden."] },
+    { heading: "Dein nächster Schritt", paragraphs: [item.deAnswer] },
   ];
 }
 
 function frenchSections(item: Research): ArticleSection[] {
   const content = frenchResearch[item.slug];
   return [
-    { heading:"Réponse directe", paragraphs:[content.answer,"Cette page distingue les faits confirmés des anciens témoignages de la communauté. Les valeurs, lieux et dates dépendant d’une version restent clairement indiqués comme étant à confirmer."] },
-    { heading:"Ce que confirment les sources", paragraphs:[content.confirmed,"Le site officiel, Steam, le forum du développeur et les aides actuelles du jeu sont prioritaires. Les publications communautaires et les vidéos expliquent les difficultés habituelles, mais ne remplacent pas une confirmation officielle."] },
-    { heading:"Procédure recommandée", paragraphs:["Suivez les étapes dans cet ordre et contrôlez chaque état directement dans le jeu. Les prix, horaires, adresses, libellés et valeurs d’équilibrage peuvent changer après une mise à jour."], bullets:content.steps },
-    { heading:"Vérifier la version actuelle", paragraphs:["Consultez l’aide F1 pour l’objet ou le mécanisme exact, BizMan pour les besoins de l’entreprise, Market Insider pour la demande et la concurrence, et la carte pour les vendeurs actuels. Pour les mises à jour et les plateformes, privilégiez les actualités Steam, la feuille de route et les annonces de Hovgaard Games.","Si une ancienne vidéo contredit l’interface actuelle, fiez-vous au jeu actuel. Notez la version et la date lorsque vous partagez une solution afin que les autres joueurs sachent si elle s’applique encore."] },
-    { heading:"Informations à confirmer", paragraphs:[content.caution,"Les éléments incertains restent explicitement ouverts. Cette méthode évite d’inventer des chiffres, des personnages, des codes, des prix ou des dates de sortie."] },
-    { heading:"Éviter les erreurs fréquentes", paragraphs:["Ne transformez pas une préférence communautaire en règle officielle et ne présentez pas une valeur non vérifiée comme un chiffre précis. Une information peut être répétée par plusieurs sites simplement parce qu’ils copient tous une ancienne publication.","Pour les décisions de gestion, gardez toujours une réserve pour le loyer, les salaires, le stock, la logistique et les besoins personnels. Pour les modifications techniques, conservez une sauvegarde ou une copie de la configuration afin de pouvoir revenir en arrière."] },
-    { heading:"Quand vérifier de nouveau", paragraphs:["Contrôlez cette réponse après une mise à jour importante, un changement des plateformes affichées sur Steam, une nouvelle étape de la feuille de route ou une annonce officielle. Faites de même si l’aide F1, BizMan, Market Insider, la carte ou le menu Workshop ne correspondent plus à cette page.","Un guide fiable indique la date de sa dernière vérification et remplace les anciennes consignes au lieu de les masquer sous de nouvelles suppositions. Les faits dépendant d’une version ultérieure doivent être vérifiés avant utilisation."] },
-    { heading:"Tester sans risquer sa partie", paragraphs:["Lorsque la réponse peut être contrôlée dans une sauvegarde, réalisez un test limité. Notez la version, créez une copie, gardez assez d’argent pour annuler votre décision et ne changez qu’une seule variable à la fois.","Comparez ensuite le résultat avec BizMan, Market Insider, l’aide F1, la carte ou le menu concerné. Un changement d’état visible constitue une meilleure preuve qu’une simple impression ; si le résultat n’est pas reproductible, présentez-le comme un témoignage de joueur."] },
-    { heading:"Sources et niveau de confiance", paragraphs:["Commencez par la page Steam officielle, le site du développeur, la feuille de route, les actualités Steam et l’interface actuelle. Le forum officiel peut fournir des précisions, tandis que les guides Steam, les discussions et les vidéos servent surtout à repérer les problèmes pratiques rencontrés par les joueurs.","Une publication communautaire peut être juste pour une ancienne version et fausse aujourd’hui. Vérifiez sa date, distinguez l’accès anticipé de la version 1.0 et regardez si l’auteur cite une source officielle ou seulement son expérience."] },
-    { heading:"Conclusion", paragraphs:[content.answer,"Cette réponse reste volontairement prudente : elle reprend uniquement ce que les sources étudiées permettent d’affirmer. Après une mise à jour, vérifiez de nouveau les données officielles et considérez les dates, prix, codes et compatibilités non documentés comme étant à confirmer."] },
+    { heading: "Réponse directe", paragraphs: [content.confirmed] },
+    { heading: "Procédure recommandée", paragraphs: [], bullets: content.steps },
+    { heading: "Version et limites", paragraphs: [content.caution] },
+    { heading: "Prochaine étape", paragraphs: [content.answer] },
   ];
 }
 
+const sourceLabels: Record<keyof typeof links, Record<Locale, string>> = {
+  official: { en: "Official Big Ambitions website", de: "Offizielle Website von Big Ambitions", fr: "Site officiel de Big Ambitions" },
+  steam: { en: "Big Ambitions on Steam", de: "Big Ambitions auf Steam", fr: "Big Ambitions sur Steam" },
+  news: { en: "Official Steam News", de: "Offizielle Steam-Neuigkeiten", fr: "Actualités Steam officielles" },
+  roadmap: { en: "Official roadmap", de: "Offizieller Entwicklungsplan", fr: "Feuille de route officielle" },
+  workshop: { en: "Steam Workshop", de: "Steam Workshop", fr: "Atelier Steam" },
+  forum: { en: "Official forum", de: "Offizielles Forum", fr: "Forum officiel" },
+  bathroomSteam: { en: "Steam discussion: Bathroom Stall", de: "Steam-Diskussion: Toilettenkabine", fr: "Discussion Steam : cabine de toilettes" },
+  investmentForum: { en: "Official forum: investment funds", de: "Offizielles Forum: Investmentfonds", fr: "Forum officiel : fonds d’investissement" },
+  guides: { en: "Steam Community Guides", de: "Anleitungen der Steam-Community", fr: "Guides de la communauté Steam" },
+};
+
 function createArticle(item: Research, locale: Locale): Article {
   const french = frenchResearch[item.slug];
+  const metadata = { en: englishMetadata, de: germanMetadata, fr: frenchMetadata }[locale][item.slug];
   const answer = locale === "en" ? item.answer : locale === "de" ? item.deAnswer : french.answer;
-  const keyword = locale === "fr" ? frenchKeywords[item.slug] : item.keyword;
+  const keyword = locale === "fr" ? frenchKeywords[item.slug] : locale === "de" ? (germanResearch[item.slug]?.keyword ?? item.keyword) : item.keyword;
   return {
     locale,
     keyword,
     category:item.category,
     slug:item.slug,
-    title: locale === "en" ? makeTitle(item.keyword) : locale === "de" ? `${item.keyword} — Verifizierter Guide` : makeFrenchTitle(keyword),
-    description: makeDescription(keyword,answer),
+    title: metadata?.title ?? (locale === "en" ? makeTitle(item.keyword) : locale === "de" ? `${keyword} — ${keyword.length < 29 ? "Anleitung für Spieler" : "Anleitung"}` : makeFrenchTitle(keyword)),
+    description: metadata?.description ?? makeDescription(keyword,answer),
     summary:answer,
     answer,
-    updated:locale === "fr" ? "31 août 2026" : "August 31, 2026",
+    updated: "2026-08-31",
+    modified: "2026-09-08",
     sections:locale === "en" ? englishSections(item) : locale === "de" ? germanSections(item) : frenchSections(item),
-    sources:item.sources.map((key)=>({label:locale === "fr" ? (key === "official" ? "Site officiel de Big Ambitions" : key === "steam" ? "Big Ambitions sur Steam" : key === "news" ? "Actualités Steam officielles" : key === "roadmap" ? "Feuille de route officielle" : key === "workshop" ? "Atelier Steam" : key === "forum" ? "Forum officiel" : key === "bathroomSteam" ? "Discussion Steam : Bathroom Stall" : key === "investmentForum" ? "Forum officiel : fonds d’investissement" : "Guides de la communauté Steam") : (key === "official" ? "Official Big Ambitions website" : key === "steam" ? "Big Ambitions on Steam" : key === "news" ? "Official Steam News" : key === "roadmap" ? "Official roadmap" : key === "workshop" ? "Steam Workshop" : key === "forum" ? "Official forum" : key === "bathroomSteam" ? "Steam discussion: Bathroom Stall" : key === "investmentForum" ? "Official forum: investment funds" : "Steam Community Guides"),href:links[key]})),
+    sources: item.sources.map((key) => ({ label: sourceLabels[key][locale], href: links[key] })),
   };
 }
 
-const articles: Record<Locale, Article[]> = {
-  en: research.map((item)=>createArticle(item,"en")),
-  de: research.map((item)=>createArticle(item,"de")),
-  fr: research.map((item)=>createArticle(item,"fr")),
-};
+function buildArticles(locale: Locale): Article[] {
+  const merged = new Map(research.map((item) => [item.slug, createArticle(item, locale)]));
+  for (const article of [...priorityGuideArticles[locale], ...growthLogisticsArticles[locale], ...growthBusinessArticles[locale]]) {
+    merged.set(article.slug, article);
+  }
+  return [...merged.values()];
+}
+
+const articles: Record<Locale, Article[]> = { en: buildArticles("en"), de: buildArticles("de"), fr: buildArticles("fr") };
 
 export function getArticles(locale: Locale): Article[] { return articles[locale]; }
 export function getArticle(locale: Locale, slug: string): Article | undefined { return articles[locale].find((article)=>article.slug === slug); }
