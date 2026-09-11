@@ -41,4 +41,18 @@ export const legalContent = {
       ["Propriété intellectuelle", "Ce site n’est pas officiel. Big Ambitions et les éléments associés appartiennent à leurs ayants droit ; les textes originaux des guides et la présentation du site ne peuvent pas être republiés sous forme de copie concurrente."],
     ],
   },
+  da: {
+    privacy: [
+      ["Oplysninger vi indsamler", "Denne uafhængige guide kræver ingen konto og indsamler ikke bevidst navne, adresser, adgangskoder, betalingsoplysninger eller spiloplysninger. Hostingens tekniske logfiler kan registrere nødvendige data om forespørgsler til sikkerhed og stabil drift."],
+      ["Cookies og statistik", "Denne version af siden anvender Google Analytics til at forstå samlet brug af siderne. Statistikken bruges til at forbedre indhold og navigation; der sælges ingen personlige oplysninger."],
+      ["Eksterne links", "Links til den officielle hjemmeside, Steam, Discord, YouTube, udviklerforum og fællesskabskilder åbner tredjepartstjenester med egne privatlivsregler. Læs deres regler, før du deler personlige oplysninger."],
+      ["Fanprojekt", "Big Ambitions Wiki er en uafhængig fanlavet guide og er ikke tilknyttet Hovgaard Games. Spilnavne, varemærker og materialer tilhører deres respektive rettighedshavere."],
+    ],
+    terms: [
+      ["Guidernes formål", "Siden leverer researchbaserede oplysninger om Big Ambitions. Den adskiller bekræftede oplysninger fra fællesskabsrapporter og markerer det, der stadig afventer bekræftelse."],
+      ["Ingen garanti", "Opdateringer kan ændre priser, steder, balance, kompatibilitet og brugerflader. Kontrollér vigtige beslutninger i det aktuelle spil, F1-hjælpen, BizMan, Market Insider, Steam eller en officiel udviklermeddelelse."],
+      ["Sikker brug", "Sikkerhedskopiér gemte spil før Workshop-indhold, blueprints, konfigurationsændringer eller tekniske forsøg. Siden tilbyder ikke cracks, ukendte programmer eller uofficielle mobilpakker."],
+      ["Rettigheder", "Siden er ikke officiel. Big Ambitions og tilknyttede materialer tilhører deres rettighedshavere; guidernes originale tekst og sidens udformning må ikke genudgives som en konkurrerende kopi."],
+    ],
+  },
 } as const;

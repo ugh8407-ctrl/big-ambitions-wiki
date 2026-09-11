@@ -19,8 +19,10 @@ describe("verified site data", () => {
     expect(getDictionary("en").home.start.cards).toHaveLength(4);
     expect(getDictionary("de").home.start.cards).toHaveLength(4);
     expect(getDictionary("fr").home.start.cards).toHaveLength(4);
+    expect(getDictionary("da").home.start.cards).toHaveLength(4);
     expect(getDictionary("en").codes.empty).toBe("None available");
     expect(getDictionary("de").codes.empty).toBe("Keine verfügbar");
     expect(getDictionary("fr").codes.empty).toBe("Aucun disponible");
+    expect(getDictionary("da").codes.empty).toBe("Ingen tilgængelige");
   });
 });

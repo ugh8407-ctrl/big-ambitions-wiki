@@ -31,7 +31,7 @@ const source = {
   tutorialUpdate: "https://steamcommunity.com/games/1331550/announcements/detail/497203291915027328",
 } as const;
 
-export const growthBusinessArticles: Record<Locale, Article[]> = {
+export const growthBusinessArticles: Record<Exclude<Locale, "da">, Article[]> = {
   en: [
     {
       locale: "en", category: "guides", slug: "big-ambitions-customer-capacity",

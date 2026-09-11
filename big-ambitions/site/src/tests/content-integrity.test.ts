@@ -34,13 +34,23 @@ describe("content integrity", () => {
   it("has localized legal copy and valid home metadata lengths", () => {
     expect(legalContent.en.privacy.length).toBeGreaterThan(2);
     expect(legalContent.de.terms.length).toBeGreaterThan(2);
-    for (const locale of ["en", "de", "fr"] as const) {
+    for (const locale of ["en", "de", "fr", "da"] as const) {
       const meta = getDictionary(locale).home.meta;
       expect(meta.title.length).toBeLessThanOrEqual(60);
       expect(meta.description.length).toBeGreaterThanOrEqual(140);
       expect(meta.description.length).toBeLessThanOrEqual(160);
       expect(meta.keywords.length).toBeLessThanOrEqual(100);
     }
+  });
+
+  it("provides Danish interface, legal copy, and keeps the game name unchanged", () => {
+    const danish = getDictionary("da");
+    expect(danish.localeName).toBe("Dansk");
+    expect(danish.nav.business).toBe("Virksomhed");
+    expect(danish.home.about.title).toBe("Hvad er Big Ambitions?");
+    expect(danish.codes.empty).toBe("Ingen tilgængelige");
+    expect(legalContent.da.privacy.length).toBeGreaterThan(2);
+    expect(legalContent.da.terms.length).toBeGreaterThan(2);
   });
 
   it("provides complete French interface and legal copy without translating the game name", () => {

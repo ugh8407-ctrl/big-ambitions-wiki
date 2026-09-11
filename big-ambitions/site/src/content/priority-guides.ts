@@ -30,7 +30,7 @@ const multiplayerRelated = ["big-ambitions-best-starting-business", "big-ambitio
 const crashRelated = ["big-ambitions-mods", "big-ambitions-patch-notes", "big-ambitions-next-update", "big-ambitions-guide"];
 const mobileRelated = ["big-ambitions-ps5", "big-ambitions-multiplayer", "big-ambitions-guide", "big-ambitions-best-starting-business"];
 
-export const priorityGuideArticles: Record<Locale, Article[]> = {
+export const priorityGuideArticles: Record<Exclude<Locale, "da">, Article[]> = {
   en: [
     {
       locale: "en", category: "troubleshooting", slug: "big-ambitions-crashes", keyword: "big ambitions crashes",

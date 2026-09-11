@@ -8,6 +8,9 @@ import { germanResearch } from "./de-content";
 import { englishMetadata } from "./metadata-en";
 import { germanMetadata } from "./metadata-de";
 import { frenchMetadata } from "./metadata-fr";
+import { localizeDanishArticle } from "./da-content";
+
+type SourceLocale = Exclude<Locale, "da">;
 
 const links = {
   official: "https://www.bigambitionsgame.com/",
@@ -115,7 +118,7 @@ function frenchSections(item: Research): ArticleSection[] {
   ];
 }
 
-const sourceLabels: Record<keyof typeof links, Record<Locale, string>> = {
+const sourceLabels: Record<keyof typeof links, Record<SourceLocale, string>> = {
   official: { en: "Official Big Ambitions website", de: "Offizielle Website von Big Ambitions", fr: "Site officiel de Big Ambitions" },
   steam: { en: "Big Ambitions on Steam", de: "Big Ambitions auf Steam", fr: "Big Ambitions sur Steam" },
   news: { en: "Official Steam News", de: "Offizielle Steam-Neuigkeiten", fr: "Actualités Steam officielles" },
@@ -127,7 +130,7 @@ const sourceLabels: Record<keyof typeof links, Record<Locale, string>> = {
   guides: { en: "Steam Community Guides", de: "Anleitungen der Steam-Community", fr: "Guides de la communauté Steam" },
 };
 
-function createArticle(item: Research, locale: Locale): Article {
+function createArticle(item: Research, locale: SourceLocale): Article {
   const french = frenchResearch[item.slug];
   const metadata = { en: englishMetadata, de: germanMetadata, fr: frenchMetadata }[locale][item.slug];
   const answer = locale === "en" ? item.answer : locale === "de" ? item.deAnswer : french.answer;
@@ -148,7 +151,7 @@ function createArticle(item: Research, locale: Locale): Article {
   };
 }
 
-function buildArticles(locale: Locale): Article[] {
+function buildArticles(locale: SourceLocale): Article[] {
   const merged = new Map(research.map((item) => [item.slug, createArticle(item, locale)]));
   for (const article of [...priorityGuideArticles[locale], ...growthLogisticsArticles[locale], ...growthBusinessArticles[locale]]) {
     merged.set(article.slug, article);
@@ -156,7 +159,13 @@ function buildArticles(locale: Locale): Article[] {
   return [...merged.values()];
 }
 
-const articles: Record<Locale, Article[]> = { en: buildArticles("en"), de: buildArticles("de"), fr: buildArticles("fr") };
+const englishArticles = buildArticles("en");
+const articles: Record<Locale, Article[]> = {
+  en: englishArticles,
+  de: buildArticles("de"),
+  fr: buildArticles("fr"),
+  da: englishArticles.map(localizeDanishArticle),
+};
 
 export function getArticles(locale: Locale): Article[] { return articles[locale]; }
 export function getArticle(locale: Locale, slug: string): Article | undefined { return articles[locale].find((article)=>article.slug === slug); }

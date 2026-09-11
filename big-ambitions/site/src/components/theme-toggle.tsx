@@ -7,6 +7,7 @@ const labels = {
   en: { light: "Use light theme", dark: "Use dark theme" },
   de: { light: "Helles Design verwenden", dark: "Dunkles Design verwenden" },
   fr: { light: "Utiliser le thème clair", dark: "Utiliser le thème sombre" },
+  da: { light: "Brug lyst tema", dark: "Brug mørkt tema" },
 } as const;
 
 export function ThemeToggle({ locale }: { locale: Locale }) {

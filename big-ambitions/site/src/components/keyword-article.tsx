@@ -14,6 +14,7 @@ export function KeywordArticle({ article, locale }: { article: Article; locale: 
     en: { answer: "Short answer", sources: "Sources", keep: "Keep building", more: "More guides", steam: "Open Steam", contents: "On this page", related: "Related guides", next: "Continue reading" },
     de: { answer: "Kurzantwort", sources: "Quellen", keep: "Weiter aufbauen", more: "Weitere Anleitungen", steam: "Steam öffnen", contents: "Auf dieser Seite", related: "Passende Anleitungen", next: "Weiterlesen" },
     fr: { answer: "Réponse courte", sources: "Sources", keep: "Poursuivre votre développement", more: "Autres guides", steam: "Ouvrir Steam", contents: "Sur cette page", related: "Guides associés", next: "Continuer la lecture" },
+    da: { answer: "Kort svar", sources: "Kilder", keep: "Fortsæt din udvikling", more: "Flere guides", steam: "Åbn Steam", contents: "På denne side", related: "Relaterede guides", next: "Læs videre" },
   }[locale];
   const related = selectRelatedArticles(article, getArticles(locale));
   return <div className="container">

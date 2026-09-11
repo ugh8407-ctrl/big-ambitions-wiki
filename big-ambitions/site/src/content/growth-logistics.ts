@@ -1,6 +1,8 @@
 import type { Locale } from "@/i18n/locales";
 import type { Article } from "./types";
 
+type SourceLocale = Exclude<Locale, "da">;
+
 // Hand-authored topic guides; see docs/research/2026-09-08-logistics-sources.md.
 const sources = {
   "setup": {
@@ -753,7 +755,7 @@ const french: Draft[] = [
   }
 ];
 
-function localize(drafts: Draft[], locale: Locale): Article[] {
+function localize(drafts: Draft[], locale: SourceLocale): Article[] {
   return drafts.map((draft) => {
     const original = english.find((article) => article.slug === draft.slug);
     if (!original) throw new Error(`Missing logistics source article: ${draft.slug}`);
@@ -773,7 +775,7 @@ function localize(drafts: Draft[], locale: Locale): Article[] {
   });
 }
 
-export const growthLogisticsArticles: Record<Locale, Article[]> = {
+export const growthLogisticsArticles: Record<SourceLocale, Article[]> = {
   en: localize(english, "en"),
   de: localize(german, "de"),
   fr: localize(french, "fr"),

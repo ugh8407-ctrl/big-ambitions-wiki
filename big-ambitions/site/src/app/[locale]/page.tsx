@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const meta = getDictionary(locale).home.meta;
-  return { title: meta.title, description: meta.description, keywords: meta.keywords, alternates: { canonical: `/${locale}`, languages: { en: "/en", de: "/de", fr: "/fr" } }, openGraph: { title: meta.title, description: meta.description, type: "website" } };
+  return { title: meta.title, description: meta.description, keywords: meta.keywords, alternates: { canonical: `/${locale}`, languages: { en: "/en", de: "/de", fr: "/fr", da: "/da" } }, openGraph: { title: meta.title, description: meta.description, type: "website" } };
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {

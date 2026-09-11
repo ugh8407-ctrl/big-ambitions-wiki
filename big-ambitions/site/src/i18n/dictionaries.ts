@@ -199,7 +199,55 @@ const fr: Dictionary = {
   legal: { privacyTitle: "Politique de confidentialité", termsTitle: "Conditions d’utilisation", updated: "Dernière mise à jour le 31 août 2026" },
 };
 
-const dictionaries: Record<Locale, Dictionary> = { en, de, fr };
+const da: Dictionary = {
+  localeName: "Dansk",
+  nav: { guide: "Guides", business: "Virksomhed", updates: "Opdateringer", mods: "Mods", platforms: "Platforme", reviews: "Anmeldelser", steam: "Se på Steam", menu: "Åbn menu" },
+  common: { home: "Forside", readGuide: "Læs guide", officialMedia: "Officielt medie", toConfirm: "Afventer bekræftelse", browseAll: "Se alle guides" },
+  home: {
+    meta: {
+      title: "Big Ambitions Wiki — Guides, mods og virksomheder",
+      description: "Dansk Big Ambitions-wiki med begynderguides, råd om virksomheder, investeringer, mods, blueprints, opdateringer, platforme og hjælp ved nedbrud.",
+      keywords: "Big Ambitions, wiki, guide, virksomhed, mods, blueprints, opdateringer",
+    },
+    hero: {
+      eyebrow: "Uafhængig fanlavet virksomhedsguide",
+      titleLead: "Byg dit",
+      titleAccent: "forretningsimperium",
+      description: "Begynd med en lille butik, lær systemerne bag et stabilt overskud, og udvid til et netværk af butikker, lagre, kontorer, investeringer og ejendomme.",
+      primary: "Start begynderguiden",
+      secondary: "Se virksomhedsguides",
+      updated: "Opdateret til version 1.0",
+      stats: [["28. august 2026", "Fuld udgivelse"], ["126", "Steam-præstationer"], ["22", "Understøttede sprog"], ["Windows + macOS", "Steam-platforme"]],
+    },
+    start: {
+      eyebrow: "Start her",
+      title: "Din rejse i Big Ambitions",
+      description: "Følg en praktisk rækkefølge: dæk figurens behov, åbn en overskuelig første virksomhed, automatisér den, og udvid derefter.",
+      cards: [
+        { number: "01", title: "Begynderguide", description: "Lær om personlige behov, tidlige mål, økonomisk sikkerhed, ansatte og vejen fra det første job til en selvkørende butik.", href: "/guides/big-ambitions-guide" },
+        { number: "02", title: "Vælg din første virksomhed", description: "Brug efterspørgsel, konkurrence, husleje, startomkostninger og personalebehov i stedet for en fast rangliste.", href: "/guides/big-ambitions-best-starting-business" },
+        { number: "03", title: "Køb og indret lokaler", description: "Find køretøjer, udstyr, toiletinventar, varer og de lokaler, den daglige drift kræver.", href: "/guides/big-ambitions-where-to-buy-truck" },
+        { number: "04", title: "Investér og udvid", description: "Sammenlign geninvestering i rentable butikker med fonde og ejendomme, når pengestrømmen er stabil.", href: "/guides/big-ambitions-best-investment" },
+      ],
+    },
+    about: {
+      eyebrow: "Om spillet",
+      title: "Hvad er Big Ambitions?",
+      paragraphs: [
+        "Big Ambitions er en virksomhedssimulation for én spiller fra Hovgaard Games. Du starter med få penge og grundlæggende behov, lejer lokaler, placerer udstyr, køber varer og ansætter medarbejdere i New York.",
+        "Væksten stopper ikke ved én butik. Den officielle beskrivelse omfatter lagre, import, hovedkontorer, ejendomme, investeringsfonde samt figurens sundhed og trivsel.",
+      ],
+      facts: [["Udvikler", "Hovgaard Games"], ["Platforme", "Windows / macOS på Steam"], ["Genre", "Virksomhedssimulation"], ["Spiltype", "Enkeltspiller"], ["Early Access", "10. marts 2023"], ["Fuld udgivelse", "28. august 2026"]],
+    },
+    guides: { eyebrow: "Alle guides", title: "Svar til alle faser", description: "Hver side besvarer et konkret spørgsmål og adskiller bekræftede fakta fra oplysninger, der stadig skal bekræftes." },
+    final: { title: "Klar til at bygge smartere?", description: "Begynd med begynderruten, kontrollér efterspørgslen før større køb, og brug de målrettede guides, når lokaler, opdateringer, platforme eller tekniske problemer bremser dig.", primary: "Læs begynderguiden", secondary: "Spil på Steam" },
+  },
+  codes: { title: "Big Ambitions-koder", empty: "Ingen tilgængelige", note: "Der er ikke bekræftet et officielt system til indløsningskoder i Big Ambitions. Vi offentliggør ikke opdigtede koder." },
+  footer: { about: "Big Ambitions Wiki er en uafhængig fanlavet guide om virksomhedsstart, investeringer, opdateringer, tilpasning, platforme og fejlfinding. Siden er ikke tilknyttet Hovgaard Games.", guides: "Guides", official: "Officielle links", legal: "Juridisk", privacy: "Privatlivspolitik", terms: "Brugsvilkår", rights: "Spilnavne og materialer tilhører deres respektive rettighedshavere." },
+  legal: { privacyTitle: "Privatlivspolitik", termsTitle: "Brugsvilkår", updated: "Senest opdateret 31. august 2026" },
+};
+
+const dictionaries: Record<Locale, Dictionary> = { en, de, fr, da };
 
 export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale];

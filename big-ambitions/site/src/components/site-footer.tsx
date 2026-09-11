@@ -5,7 +5,7 @@ import { siteData } from "@/lib/site-data";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const { footer } = getDictionary(locale);
-  const links = locale === "fr" ? { beginner:"Guide du débutant", workshop:"Mods et Blueprints", updates:"Mises à jour", website:"Site officiel", discord:"Discord officiel", youtube:"YouTube officiel", fan:"Site communautaire." } : locale === "de" ? { beginner:"Einsteiger-Guide", workshop:"Mods & Blueprints", updates:"Updates", website:"Offizielle Website", discord:"Offizieller Discord", youtube:"Offizielles YouTube", fan:"Fanprojekt." } : { beginner:"Beginner Guide", workshop:"Mods & Blueprints", updates:"Updates", website:"Official Website", discord:"Official Discord", youtube:"Official YouTube", fan:"Fan site." };
+  const links = locale === "fr" ? { beginner:"Guide du débutant", workshop:"Mods et Blueprints", updates:"Mises à jour", website:"Site officiel", discord:"Discord officiel", youtube:"YouTube officiel", fan:"Site communautaire." } : locale === "de" ? { beginner:"Einsteiger-Guide", workshop:"Mods & Blueprints", updates:"Updates", website:"Offizielle Website", discord:"Offizieller Discord", youtube:"Offizielles YouTube", fan:"Fanprojekt." } : locale === "da" ? { beginner:"Begynderguide", workshop:"Mods og blueprints", updates:"Opdateringer", website:"Officiel hjemmeside", discord:"Officiel Discord", youtube:"Officiel YouTube", fan:"Fanside." } : { beginner:"Beginner Guide", workshop:"Mods & Blueprints", updates:"Updates", website:"Official Website", discord:"Official Discord", youtube:"Official YouTube", fan:"Fan site." };
   return (
     <footer className="site-footer">
       <div className="footer-grid">
