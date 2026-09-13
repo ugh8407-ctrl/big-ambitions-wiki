@@ -120,11 +120,11 @@ export const priorityGuideArticles: Record<Exclude<Locale, "da">, Article[]> = {
     },
     {
       locale: "en", category: "guides", slug: "big-ambitions-best-investment", keyword: "big ambitions best investment fund",
-      title: "Big Ambitions Best Investment Fund: How to Choose",
-      description: "Choose the Big Ambitions best investment fund for your spare cash, compare risk, and understand the 1.0 changes to auto-investing and partial withdrawals.",
+      title: "Big Ambitions Best Investment Fund & Strategy (1.0)",
+      description: "Compare Big Ambitions best investment fund choices, risk, cash reserves, and business reinvestment to plan safer investments for your current save.",
       summary: "A practical fund decision for your save, including the banking changes in 1.0.",
       answer: "There is no single investment fund verified to always earn the most in Big Ambitions. Our starting recommendation is a lower-risk option for surplus cash, after reserving the money your businesses need. Compare the current bank offers before choosing a fund; the highest possible return is not a guaranteed result.",
-      updated: "2026-09-08", relatedSlugs: investmentRelated,
+      updated: "2026-09-13", relatedSlugs: investmentRelated,
       sections: [
         { heading: "Choose the fund around your next business expense", paragraphs: [
           "First decide what this money is for. If it must buy next week's stock, cover wages, or furnish your next shop, keep it available. Money left after those commitments is a better candidate for investing. A large balance alone does not tell you how much you can spare.",
@@ -202,11 +202,11 @@ export const priorityGuideArticles: Record<Exclude<Locale, "da">, Article[]> = {
     },
     {
       locale: "en", category: "platforms", slug: "big-ambitions-ps5", keyword: "big ambitions ps5",
-      title: "Big Ambitions PS5: Release Status and PC Options",
-      description: "Check Big Ambitions PS5 availability, the developer's dated console statement, and the supported PC options before looking for a PlayStation release.",
+      title: "Big Ambitions PS5 Release Date: Latest Status (2026)",
+      description: "Big Ambitions PS5 release date is not confirmed. Check the latest official PlayStation status, developer statement, and current PC and Mac options.",
       summary: "The confirmed platforms and what the developer has actually said about PlayStation.",
       answer: "As of September 8, 2026, no Big Ambitions PS5 release or PS5 release date is confirmed in the official sources reviewed. The available Steam version supports Windows and macOS. The developer's specific PlayStation reply said there were no porting plans at that time.",
-      updated: "2026-09-08", relatedSlugs: platformRelated,
+      updated: "2026-09-13", relatedSlugs: platformRelated,
       sections: [
         { heading: "Can you play Big Ambitions on PS5 now?", paragraphs: [
           "There is no announced PS5 edition in the official material checked for this page. The game's official website directs buyers to Steam, where the published system requirements cover Windows and macOS.",

@@ -21,8 +21,8 @@ const en = {
   },
   home: {
     meta: {
-      title: "Big Ambitions Wiki — Guides, Mods & Business Tips",
-      description: "Big Ambitions wiki with beginner guides, best business advice, investment tips, mods, blueprints, updates, platform status, and crash fixes.",
+      title: "Big Ambitions Wiki: Guides, PS5 & Investment Tips",
+      description: "Use this Big Ambitions Wiki for beginner guides, PS5 release status, best investment fund strategy, business setup, updates, mods, and troubleshooting.",
       keywords: "Big Ambitions, wiki, guide, best business, mods, blueprints, updates",
     },
     hero: {

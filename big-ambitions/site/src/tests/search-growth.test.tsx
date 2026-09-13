@@ -10,6 +10,7 @@ import sitemap from "@/app/sitemap";
 import robots from "@/app/robots";
 import { siteOrigin } from "@/lib/site-url";
 import { locales } from "@/i18n/locales";
+import { getDictionary } from "@/i18n/dictionaries";
 
 afterEach(cleanup);
 
@@ -80,5 +81,23 @@ describe("search growth release", () => {
     expect(container.querySelector('a[href="/en/guides/big-ambitions-warehouse-setup"]')).not.toBeNull();
     expect(container.querySelector('a[href="/en/guides/big-ambitions-market-insider"]')).not.toBeNull();
     expect(container.querySelector('a[href="/en/guides"]')).not.toBeNull();
+  });
+
+  it("targets the highest-impression English queries with accurate metadata and homepage links", () => {
+    const ps5 = getArticle("en", "big-ambitions-ps5")!;
+    expect(ps5.title).toBe("Big Ambitions PS5 Release Date: Latest Status (2026)");
+    expect(ps5.description).toContain("Big Ambitions PS5 release date");
+
+    const investments = getArticle("en", "big-ambitions-best-investment")!;
+    expect(investments.title).toBe("Big Ambitions Best Investment Fund & Strategy (1.0)");
+    expect(investments.description).toContain("best investment fund");
+
+    const homeMeta = getDictionary("en").home.meta;
+    expect(homeMeta.title).toBe("Big Ambitions Wiki: Guides, PS5 & Investment Tips");
+    expect(homeMeta.description).toContain("Big Ambitions Wiki");
+
+    const { container } = render(<GuideGrid locale="en" />);
+    expect(container.querySelector('a[href="/en/platforms/big-ambitions-ps5"]')).not.toBeNull();
+    expect(container.querySelector('a[href="/en/guides/big-ambitions-best-investment"]')).not.toBeNull();
   });
 });
