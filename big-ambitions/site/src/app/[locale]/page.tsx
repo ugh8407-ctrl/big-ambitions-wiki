@@ -19,5 +19,5 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  return <><Hero locale={locale}/><StartHere locale={locale}/><AboutGame locale={locale}/><GuideGrid locale={locale}/><section className="container codes-home"><CodesSidebar locale={locale}/></section><FinalCta locale={locale}/></>;
+  return <><Hero locale={locale}/><GuideGrid locale={locale}/><StartHere locale={locale}/><AboutGame locale={locale}/><section className="container codes-home"><CodesSidebar locale={locale}/></section><FinalCta locale={locale}/></>;
 }

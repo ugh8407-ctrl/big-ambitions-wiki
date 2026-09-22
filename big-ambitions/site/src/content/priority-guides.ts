@@ -124,8 +124,17 @@ export const priorityGuideArticles: Record<Exclude<Locale, "da">, Article[]> = {
       description: "Compare Big Ambitions best investment fund choices, risk, cash reserves, and business reinvestment to plan safer investments for your current save.",
       summary: "A practical fund decision for your save, including the banking changes in 1.0.",
       answer: "There is no single investment fund verified to always earn the most in Big Ambitions. Our starting recommendation is a lower-risk option for surplus cash, after reserving the money your businesses need. Compare the current bank offers before choosing a fund; the highest possible return is not a guaranteed result.",
-      updated: "2026-09-13", relatedSlugs: investmentRelated,
+      updated: "2026-09-08", modified: "2026-09-22", relatedSlugs: investmentRelated,
       sections: [
+        { heading: "Investment checklist: before you commit money", paragraphs: [
+          "Use this planning checklist with the bank offers visible in your save. It is a decision method, not a ranking of named funds or a promise of returns. The official sources below establish investment funds as a feature but do not establish a permanent best fund.",
+        ], bullets: [
+          "Need the cash for wages, rent or restocking? Reserve those costs before investing.",
+          "Choosing between funds? Record each offer's displayed risk and terms; do not compare only the largest possible return.",
+          "Considering another business? Compare its setup and running costs with demand and capacity before committing.",
+          "Using automatic contributions? Account for them separately so deposits are not mistaken for profit.",
+          "Reviewing performance? Use ending value plus withdrawals, minus contributions and starting value, over the same in-game period.",
+        ] },
         { heading: "Choose the fund around your next business expense", paragraphs: [
           "First decide what this money is for. If it must buy next week's stock, cover wages, or furnish your next shop, keep it available. Money left after those commitments is a better candidate for investing. A large balance alone does not tell you how much you can spare.",
           "For a first investment, our preference is the lower-risk offer shown by your bank. Consider a riskier fund only when a poor result would not interrupt your shops. This is a gameplay recommendation, not a claim that one named fund beats every other option in every save.",
@@ -369,8 +378,9 @@ export const priorityGuideArticles: Record<Exclude<Locale, "da">, Article[]> = {
       description: "Wähle in Big Ambitions einen passenden Investmentfonds, vergleiche Risiken und nutze automatische Anlagen sowie Teilabhebungen aus dem Update 1.0.",
       summary: "So vergleichst du Fonds in deinem Spielstand und berücksichtigst die Bankänderungen aus Version 1.0.",
       answer: "Für Big Ambitions ist kein Fonds belegt, der immer den höchsten Gewinn erzielt. Unsere Empfehlung für den Einstieg ist eine risikoärmere Anlage für überschüssiges Geld. Halte vorher die laufenden Kosten deiner Unternehmen zurück und vergleiche die aktuellen Angebote der Bank.",
-      updated: "2026-09-08", relatedSlugs: investmentRelated,
+      updated: "2026-09-08", modified: "2026-09-22", relatedSlugs: investmentRelated,
       sections: [
+        { heading: "Checkliste vor der Geldanlage", paragraphs: ["Diese Checkliste hilft beim Vergleich der Angebote in deinem Spielstand. Sie ist keine Rangliste bestimmter Fonds und verspricht keine Rendite. Die unten verlinkten Quellen belegen keinen dauerhaft besten Fonds."], bullets: ["Halte Geld für Löhne, Miete und Waren zurück.", "Notiere Risiko und Bedingungen jedes Fonds, nicht nur den möglichen Ertrag.", "Vergleiche bei einer neuen Filiale Einrichtungskosten, laufende Kosten, Nachfrage und Kapazität.", "Erfasse automatische Einzahlungen getrennt vom Gewinn.", "Vergleiche über denselben Zeitraum: Endwert plus Abhebungen minus Einzahlungen und Anfangswert."] },
         { heading: "Erst die nächste Geschäftsausgabe einplanen", paragraphs: [
           "Entscheide zuerst, wofür du das Geld brauchst. Waren, Löhne und die Einrichtung deines nächsten Ladens sollten bezahlt werden können, ohne dass du auf ein gutes Anlageergebnis angewiesen bist. Ein hoher Kontostand allein sagt wenig darüber aus, wie viel davon wirklich frei verfügbar ist.",
           "Für die erste Anlage bevorzugen wir ein Angebot mit geringerem angezeigtem Risiko. Ein riskanterer Fonds kommt eher infrage, wenn ein Verlust deine Geschäfte nicht gefährdet. Das ist eine Spielempfehlung und keine Behauptung, dass ein bestimmter Fonds in jedem Spielstand gewinnt.",
@@ -614,8 +624,9 @@ export const priorityGuideArticles: Record<Exclude<Locale, "da">, Article[]> = {
       description: "Choisissez un fonds dans Big Ambitions selon votre trésorerie et son risque, avec les apports automatiques et les retraits partiels de la version 1.0.",
       summary: "Une méthode pour comparer les fonds de votre partie et tenir compte des nouveautés bancaires de la version 1.0.",
       answer: "Aucun fonds de Big Ambitions n’est établi comme le plus rentable dans toutes les parties. Pour débuter, nous conseillons une option moins risquée avec votre argent disponible, après avoir réservé les dépenses de vos entreprises. Comparez les offres actuelles de la banque avant de choisir.",
-      updated: "2026-09-08", relatedSlugs: investmentRelated,
+      updated: "2026-09-08", modified: "2026-09-22", relatedSlugs: investmentRelated,
       sections: [
+        { heading: "Vérifications avant d’investir", paragraphs: ["Utilisez cette liste pour comparer les offres affichées dans votre partie. Elle propose une méthode, sans classement de fonds ni promesse de rendement. Les sources ci-dessous ne désignent aucun fonds toujours supérieur aux autres."], bullets: ["Réservez les salaires, le loyer et le réapprovisionnement.", "Notez le risque et les conditions de chaque fonds, pas seulement son rendement potentiel.", "Pour un nouveau commerce, comparez installation, charges, demande et capacité.", "Comptabilisez les versements automatiques séparément du bénéfice.", "Sur une même période : valeur finale plus retraits, moins apports et valeur initiale."] },
         { heading: "Commencer par les prochaines dépenses du commerce", paragraphs: [
           "Déterminez d’abord à quoi servira cet argent. Vos achats de marchandises, les salaires et l’aménagement du prochain magasin doivent rester finançables sans dépendre d’un bon résultat du fonds. Un solde élevé ne signifie pas que toute cette somme est disponible.",
           "Pour un premier placement, notre préférence va à une offre affichant un risque plus faible. Un fonds plus risqué convient plutôt à un excédent dont une perte ne perturberait pas vos commerces. Il s’agit d’un conseil de jeu, pas d’un classement universel des fonds.",

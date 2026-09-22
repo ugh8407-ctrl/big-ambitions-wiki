@@ -5,7 +5,7 @@ import { siteOrigin } from "@/lib/site-url";
 
 const origin = siteOrigin;
 export default function sitemap():MetadataRoute.Sitemap{return locales.flatMap((locale)=>[
-  {url:`${origin}/${locale}`,changeFrequency:"weekly" as const,priority:1},
+  {url:`${origin}/${locale}`,lastModified:new Date("2026-09-22"),changeFrequency:"weekly" as const,priority:1},
   ...getCategories(locale).map((category)=>({url:`${origin}/${locale}/${category}`,changeFrequency:"weekly" as const,priority:.8})),
   ...getArticles(locale).map((article)=>({url:`${origin}/${locale}/${article.category}/${article.slug}`,lastModified:new Date(article.modified ?? article.updated),changeFrequency:"monthly" as const,priority:.7})),
   {url:`${origin}/${locale}/privacy`,changeFrequency:"yearly" as const,priority:.2},

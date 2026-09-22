@@ -64,6 +64,7 @@ export function localizeDanishArticle(article: Article): Article {
     summary: item.answer,
     answer: item.answer,
     sections: [
+      ...(article.slug === "big-ambitions-best-investment" ? [{ heading: "Tjekliste før du investerer", paragraphs: ["Dette er en metode til at sammenligne tilbud i dit spil, ikke en rangliste eller et løfte om afkast."], bullets: ["Behold penge til løn, husleje og nye varer.", "Sammenlign fondenes viste risiko og vilkår.", "Vurder en ny butiks startomkostninger, drift, efterspørgsel og kapacitet.", "Registrér automatiske indbetalinger særskilt fra fortjenesten.", "Sammenlign over samme periode: slutværdi plus hævninger minus indbetalinger og startværdi."] }] : []),
       { heading: "Det skal du vide", paragraphs: [item.facts] },
       { heading: "Trin for trin", paragraphs: [], bullets: item.steps },
       { heading: "Version og begrænsninger", paragraphs: [item.caution] },

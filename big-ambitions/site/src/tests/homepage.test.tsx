@@ -7,7 +7,8 @@ import { StartHere } from "@/components/home/start-here";
 describe("researched homepage", () => {
   it("uses the approved game identity and four start cards", () => {
     render(<><Hero locale="en" /><StartHere locale="en" /></>);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Business Empire");
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Big Ambitions");
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Wiki & Guides");
     expect(screen.getAllByTestId("start-card")).toHaveLength(4);
     expect(screen.getByText("Beginner Guide")).toBeInTheDocument();
   });

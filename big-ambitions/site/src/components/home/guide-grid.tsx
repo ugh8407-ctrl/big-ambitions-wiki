@@ -7,14 +7,14 @@ import { categoryLabel } from "@/content/guide-navigation";
 const featured = [
   ["📚", "big-ambitions-guide"],
   ["🏪", "big-ambitions-best-starting-business"],
+  ["📈", "big-ambitions-best-investment"],
+  ["🚪", "big-ambitions-where-to-buy-bathroom-stall"],
   ["📊", "big-ambitions-market-insider"],
   ["👥", "big-ambitions-customer-capacity"],
   ["📦", "big-ambitions-warehouse-setup"],
   ["🚚", "big-ambitions-logistics-manager"],
   ["🛒", "big-ambitions-purchasing-agent"],
   ["🏢", "big-ambitions-office-requirements"],
-  ["🚪", "big-ambitions-where-to-buy-bathroom-stall"],
-  ["📈", "big-ambitions-best-investment"],
   ["🎮", "big-ambitions-ps5"],
   ["🛠️", "big-ambitions-crashes"],
 ] as const;
